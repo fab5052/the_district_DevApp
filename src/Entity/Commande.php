@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CommandeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +24,21 @@ class Commande
 
     #[ORM\Column]
     private ?int $etat = null;
+
+    /**
+     * @var Collection<int, Detail>
+     */
+    #[ORM\OneToMany(targetEntity: Detail::class, mappedBy: 'commande')]
+    private Collection $Detail;
+
+    #[ORM\ManyToOne(inversedBy: 'Commande')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Utilisateur $utilisateur = null;
+
+    public function __construct()
+    {
+        $this->Detail = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +77,48 @@ class Commande
     public function setEtat(int $etat): static
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Detail>
+     */
+    public function getDetail(): Collection
+    {
+        return $this->Detail;
+    }
+
+    public function addDetail(Detail $detail): static
+    {
+        if (!$this->Detail->contains($detail)) {
+            $this->Detail->add($detail);
+            $detail->setCommande($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetail(Detail $detail): static
+    {
+        if ($this->Detail->removeElement($detail)) {
+            // set the owning side to null (unless already changed)
+            if ($detail->getCommande() === $this) {
+                $detail->setCommande(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
