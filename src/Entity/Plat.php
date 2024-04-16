@@ -31,7 +31,7 @@ class Plat
     #[ORM\Column]
     private ?bool $active = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plats')]
+    #[ORM\ManyToOne(inversedBy: 'plat')]
     #[ORM\JoinColumn(nullable: false)]
     private ?categorie $categorie = null;
 
@@ -126,27 +126,27 @@ class Plat
     /**
      * @return Collection<int, Detail>
      */
-    public function getDetails(): Collection
+    public function getDetail(): Collection
     {
         return $this->details;
     }
 
-    public function addDetail(Detail $detail): static
+    public function addDetail(Detail $details): static
     {
-        if (!$this->details->contains($detail)) {
-            $this->details->add($detail);
-            $detail->setPlat($this);
+        if (!$this->details->contains($details)) {
+            $this->details->add($details);
+            $details->setPlat(null);
         }
 
         return $this;
     }
 
-    public function removeDetail(Detail $detail): static
+    public function removeDetail(Detail $details): static
     {
-        if ($this->details->removeElement($detail)) {
+        if ($this->details->removeElement($details)) {
             // set the owning side to null (unless already changed)
-            if ($detail->getPlat() === $this) {
-                $detail->setPlat(null);
+            if ($details->getPlat() === $this) {
+                $details->setPlat(null);
             }
         }
 

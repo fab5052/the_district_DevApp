@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\DetailRepository;
+// use Doctrine\Common\Collections\ArrayCollection;
+// use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: DetailRepository::class)]
@@ -18,7 +20,7 @@ class Detail
 
     #[ORM\ManyToOne(inversedBy: 'details')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?plat $plat = null;
+    private ?Plat $plat = null;
 
     #[ORM\ManyToOne(inversedBy: 'Detail')]
     #[ORM\JoinColumn(nullable: false)]
@@ -41,7 +43,7 @@ class Detail
         return $this;
     }
 
-    public function getPlat(): ?plat
+    public function getPlat(): ?Plat
     {
         return $this->plat;
     }
