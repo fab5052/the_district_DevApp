@@ -45,9 +45,19 @@ class Utilisateur
     #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'utilisateur')]
     private Collection $Commande;
 
+    /**
+     * @var Collection<int, Commande>
+     */
+    #[ORM\OneToMany(targetEntity: Commande::class, mappedBy: 'utilisateur')]
+    private Collection $commande;
+
+    #[ORM\Column(length: 50)]
+    private ?string $roles = null;
+
     public function __construct()
     {
         $this->Commande = new ArrayCollection();
+        $this->commande = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,6 +187,18 @@ class Utilisateur
                 $commande->setUtilisateur(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRoles(): ?string
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(string $roles): static
+    {
+        $this->roles = $roles;
 
         return $this;
     }

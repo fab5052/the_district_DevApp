@@ -6,10 +6,7 @@ use App\Entity\Categorie;
 use App\Entity\Plat;
 use App\Entity\Detail;
 use App\Entity\Commande;
-
 use App\Entity\Utilisateur;
-use App\Entity\User;
-
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -17,82 +14,114 @@ class TheDistrictFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $categorie1 = new Categorie();
-
-        // $categorie1->setLibelle('Pizza');
-        // $categorie1->setImage('image/category/pizza_cat.png');
-        // $categorie1->setActive('yes');
-
-        include 'truc.php';
+        include 'base.php';
 
         $categorieRepo = $manager->getRepository(Categorie::class);
 
-        foreach ($categorie as $cat) {
+        foreach ($categorie as $catData) {
             $categorieDB = new Categorie();
             $categorieDB
-            ->setLibelle($cat['libelle'])
-            ->setImage($cat['image'])
-            ->setActive($cat['active']);
-
+                ->setLibelle($catData['libelle'])
+                ->setImage($catData['image'])
+                ->setActive($catData['active']);
+            
             $manager->persist($categorieDB);
-
-       
-   
         }
         $manager->flush();
 
-        $platRepo = $manager->getRepository(Plat::class);
-
-        foreach ($plat as $p) {
+        foreach ($plat as $platData) {
             $platDB = new Plat();
             $platDB
-            ->setLibelle($p['libelle'])
-            ->setDescription($p['description'])
-            ->setPrix($p['prix'])
-            ->setImage($p['image'])
-            ->setActive($p['active']);
-            $categorie = $categorieRepo->find($p['id_categorie']);
-            $platDB->setCategorie($categorie);
-            $detail = $detailRepo->find($p['id_detail']);
-            $platDB->addDetail($details);
-            $manager->persist($platDB);            
+                ->setLibelle($platData['libelle'])
+                ->setDescription($platData['description'])
+                ->setPrix($platData['prix'])
+                ->setImage($platData['image'])
+                ->setActive($platData['active']);
+            
+            $categorie = $manager->getRepository(Categorie::class)->find($platData['id_categorie']);
+            if ($categorie) {
+                $platDB->setCategorie($categorie);
+            }
+
+       
+            // $detail = $manager->getRepository(Detail::class)->find($detailData['id_detail']);
+            // if ($detail) {
+            //     $platDB->addDetail($detail);
+            // }
+            
+
+            $manager->persist($platDB);
         }
         $manager->flush();
 
-        
-        $detailRepo = $manager->getRepository(Detail::class);
-           
-        foreach ($detail as $d) {
+        foreach ($detail as $detailData) {
             $detailDB = new Detail();
             $detailDB
-            ->setQuantite($d['quantite']);
-            $commande = $commandeRepo->find($d['id_commande']);
-            $detailDB->setCommande($commande);
-            $plat = $platRepo->find($d['id_plat']);
-            $detailDB->setPlat($plat);
-           
+                ->setQuantite($detailData['quantite']);
+            
+            $plat = $manager->getRepository(Plat::class)->find($detailData['id_plat']);
+            if ($plat) {
+                $detailDB->setPlat($plat);
+            }
+
+            $commande = $manager->getRepository(Commande::class)->find($detailData['id_commande']);
+            if ($commande) {
+                $detailDB->setCommande($commande);
+            }
+
             $manager->persist($detailDB);
-
-
         }
-        // $manager->flush();
-
-    //     $commandeRepo = $manager->getRepository(Commande::class);
-
-    //     foreach ($commande as $com) {
-    //         $commandeDB = new Commande();
-    //         $commandeDB
-    //         ->setDateCommande($com['date_commande'])
-    //         ->setTotal($com['total'])
-    //         ->setEtat($com['etat']);
-    //         $detail = $detailRepo->find($com['id_detail']);
-    //         $commandeDB->addDetail($detail);
-    //         $utilisateur = $utilisateurRepo->find(['id_utilisateur']);
-    //         $commandeDB->setUtilisateur($utilisateur);
-
-
         $manager->flush();
-        }
-    }
 
+        include 'base.php';
+
+        foreach ($commande as $commandeData) {
+            $date = new \DateTime($commandeData['date_commande']);
+            $commandeDB = new Commande();
+            $commandeDB
+                ->setDateCommande($date)
+                ->setTotal($commandeData['total'])
+                ->setEtat($commandeData['etat']);
+            
+            $detail = $manager->getRepository(Detail::class)->find($commandeData['id_detail']);
+            if ($detail) {
+                $commandeDB->addDetail($detail);
+            }
+
+            $utilisateur = $manager->getRepository(Utilisateur::class)->find($commandeData['id_utilisateur']);
+            if ($utilisateur) {
+                $commandeDB->setUtilisateur($utilisateur);
+            }
+
+            $manager->persist($commandeDB);
+        }
+        $manager->flush();
+
+        include 'base.php';
+    
+        foreach ($utilisateur as $utilisateurData) {
+            $utilisateurDB = new Utilisateur();
+            $utilisateurDB 
+             ->setEmail($emailData['email']) 
+             ->setPassword($passwordData['password'])
+             ->setNom($nomData['nom'])
+             ->setprenom($prenomData['prenom'])
+             ->setTelephone($telephoneData['telephone'])
+             ->setAdresse($AdresseData['adresse'])
+             ->setCp($CpData('cp'))
+             ->setVille($VilleData['ville'])
+             ->setRoles($RolesData['roles']);
+
+            $commande = $manager->getRepository(Commande::class)->find($utilisateurData['id_commande']);
+            if ($commande) {
+                $utilisateurDB->addCommande($commande);
+            }
+            $manager->persist($commandeDB);
+        }
+        $manager->flush();
+    
+        }
+
+
+ }
 

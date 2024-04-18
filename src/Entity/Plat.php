@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PlatRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,9 +32,8 @@ class Plat
     #[ORM\Column]
     private ?bool $active = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plat')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?categorie $categorie = null;
+    #[ORM\ManyToOne(inversedBy: 'plats')]
+    private ?Categorie $categorie = null;
 
     /**
      * @var Collection<int, Detail>
@@ -45,6 +45,8 @@ class Plat
     {
         $this->details = new ArrayCollection();
     }
+
+  
 
     public function getId(): ?int
     {
@@ -111,12 +113,12 @@ class Plat
         return $this;
     }
 
-    public function getCategorie(): ?categorie
+    public function getCategorie(): ?Categorie
     {
         return $this->categorie;
     }
 
-    public function setCategorie(?categorie $categorie): static
+    public function setCategorie(?Categorie $categorie): static
     {
         $this->categorie = $categorie;
 
@@ -126,30 +128,32 @@ class Plat
     /**
      * @return Collection<int, Detail>
      */
-    public function getDetail(): Collection
+    public function getDetails(): Collection
     {
         return $this->details;
     }
 
-    public function addDetail(Detail $details): static
+    public function addDetail(Detail $detail): static
     {
-        if (!$this->details->contains($details)) {
-            $this->details->add($details);
-            $details->setPlat(null);
+        if (!$this->details->contains($detail)) {
+            $this->details->add($detail);
+            $detail->setPlat($this);
         }
 
         return $this;
     }
 
-    public function removeDetail(Detail $details): static
+    public function removeDetail(Detail $detail): static
     {
-        if ($this->details->removeElement($details)) {
+        if ($this->details->removeElement($detail)) {
             // set the owning side to null (unless already changed)
-            if ($details->getPlat() === $this) {
-                $details->setPlat(null);
+            if ($detail->getPlat() === $this) {
+                $detail->setPlat(null);
             }
         }
 
         return $this;
     }
+
+
 }

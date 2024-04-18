@@ -35,6 +35,7 @@ class Categorie
         $this->plats = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -112,4 +113,6 @@ class Categorie
 
         return $this;
     }
+
+
 }

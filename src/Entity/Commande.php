@@ -29,16 +29,16 @@ class Commande
      * @var Collection<int, Detail>
      */
     #[ORM\OneToMany(targetEntity: Detail::class, mappedBy: 'commande')]
-    private Collection $Detail;
+    private Collection $detail;
 
-    #[ORM\ManyToOne(inversedBy: 'Commande')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(inversedBy: 'commande')]
     private ?Utilisateur $utilisateur = null;
 
     public function __construct()
     {
-        $this->Detail = new ArrayCollection();
+        $this->detail = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -84,15 +84,15 @@ class Commande
     /**
      * @return Collection<int, Detail>
      */
-    public function getDetail(): Collection
+    public function getDetails(): Collection
     {
-        return $this->Detail;
+        return $this->detail;
     }
 
     public function addDetail(Detail $detail): static
     {
-        if (!$this->Detail->contains($detail)) {
-            $this->Detail->add($detail);
+        if (!$this->detail->contains($detail)) {
+            $this->detail->add($detail);
             $detail->setCommande($this);
         }
 
@@ -101,7 +101,7 @@ class Commande
 
     public function removeDetail(Detail $detail): static
     {
-        if ($this->Detail->removeElement($detail)) {
+        if ($this->detail->removeElement($detail)) {
             // set the owning side to null (unless already changed)
             if ($detail->getCommande() === $this) {
                 $detail->setCommande(null);
@@ -122,4 +122,5 @@ class Commande
 
         return $this;
     }
+
 }

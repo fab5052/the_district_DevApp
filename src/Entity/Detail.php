@@ -3,8 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\DetailRepository;
-// use Doctrine\Common\Collections\ArrayCollection;
-// use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: DetailRepository::class)]
@@ -18,13 +18,27 @@ class Detail
     #[ORM\Column]
     private ?int $quantite = null;
 
-    #[ORM\ManyToOne(inversedBy: 'details')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(inversedBy: 'Details')]
     private ?Plat $plat = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Detail')]
-    #[ORM\JoinColumn(nullable: false)]
+
+    /**
+     * @var Collection<int, Plat>
+     */
+    #[ORM\OneToMany(targetEntity: Plat::class, mappedBy: 'detail')]
+    private Collection $plats;
+
+    #[ORM\ManyToOne(inversedBy: 'Details')]
     private ?Commande $commande = null;
+
+   
+    public function __construct()
+    {
+        $this->plats = new ArrayCollection();
+    }
+
+  
+
 
     public function getId(): ?int
     {
@@ -48,9 +62,39 @@ class Detail
         return $this->plat;
     }
 
-    public function setPlat(?plat $plat): static
+    public function setPlat(?Plat $plat): static
     {
         $this->plat = $plat;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Plat>
+     */
+    public function getPlats(): Collection
+    {
+        return $this->plats;
+    }
+
+    public function addPlat(Plat $plat): static
+    {
+        if (!$this->plats->contains($plat)) {
+            $this->plats->add($plat);
+            $plat->addDetail($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlat(Plat $plat): static
+    {
+        if ($this->plats->removeElement($plat)) {
+            // set the owning side to null (unless already changed)
+            if ($plat->getDetails() === $this) {
+                $plat->addDetail($this);
+            }
+        }
 
         return $this;
     }
@@ -66,4 +110,7 @@ class Detail
 
         return $this;
     }
+
+    
+
 }
