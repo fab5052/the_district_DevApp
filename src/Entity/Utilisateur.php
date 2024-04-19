@@ -30,7 +30,7 @@ class Utilisateur
     #[ORM\Column(length: 20)]
     private ?string $telephone = null;
 
-    #[ORM\Column(length: 5)]
+    #[ORM\Column(length: 50)]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 20)]

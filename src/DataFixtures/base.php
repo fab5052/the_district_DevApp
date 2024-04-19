@@ -57,11 +57,11 @@ $detail = array(
 
 
 $commande = array(
-  array('date_commande' => '2024-03-04 08:30:00','total' => '36.00','etat' => 0,'username' => 'Alice Johnson','telephone_client' => '7894561230','email_client' => 'alice@example.com','adresse_client' => '123 Main Street', 'id_detail'=> 1, 'id_utilisateur' => 1), 
-  array('date_commande' => '2024-03-04 09:15:00','total' => '26.00','etat' => 2,'username' => 'Bob Smith','telephone_client' => '7418529630','email_client' => 'bob@example.com','adresse_client' => '456 Elm Street','id_detail'=> 2, 'id_utilisateur' => 2),
-  array('date_commande' => '2024-03-04 10:00:00','total' => '15.00','etat' => 3,'username' => 'Emily Brown','telephone_client' => '7458963210','email_client' => 'emily@example.com','adresse_client' => '789 Oak Avenue', 'id_detail'=> 3, 'id_utilisateur' => 3),
-  array('date_commande' => '2024-03-04 11:45:00','total' => '42.00','etat' => 0,'username' => 'David Wilson','telephone_client' => '7485963210','email_client' => 'david@example.com','adresse_client' => '963 Pine Street', 'id_detail'=> 4, 'id_utilisateur' => 4),
-  array('date_commande' => '2024-03-04 13:20:00','total' => '29.00','etat' => 1,'username' => 'Sophia Martinez','telephone_client' => '7412589630','email_client' => 'sophia@example.com','adresse_client' => '258 Cedar Street', 'id_detail'=> 5, 'id_utilisateur' => 5)
+  array('date_commande' => '2024-03-04 08:30:00','total' => '36.00','etat' => 0,'id_detail'=> 1, 'id_utilisateur' => 1), 
+  array('date_commande' => '2024-03-04 09:15:00','total' => '26.00','etat' => 2,'id_detail'=> 2, 'id_utilisateur' => 2),
+  array('date_commande' => '2024-03-04 10:00:00','total' => '15.00','etat' => 3,'id_detail'=> 3, 'id_utilisateur' => 3),
+  array('date_commande' => '2024-03-04 11:45:00','total' => '42.00','etat' => 0,'id_detail'=> 4, 'id_utilisateur' => 4),
+  array('date_commande' => '2024-03-04 13:20:00','total' => '29.00','etat' => 1,'id_detail'=> 5, 'id_utilisateur' => 5)
   // array('date_commande' => '2024-03-04 14:10:00','total' => '56.00','etat' => 1,'username' => 'Michael Johnson','telephone_client' => '7894569630','email_client' => 'michael@example.com','adresse_client' => '753 Maple Street')
   // array('date_commande' => '2024-03-04 15:05:00','total' => '12.00','etat' => 'En cours de livraison','username' => 'Jessica Miller','telephone_client' => '7458963210','email_client' => 'jessica@example.com','adresse_client' => '852 Walnut Street')
   // array('date_commande' => '2024-03-04 16:30:00','total' => '14.00','etat' => 'Livrée','username' => 'Daniel Davis','telephone_client' => '7485963210','email_client' => 'daniel@example.com','adresse_client' => '369 Pine Street'),,'id_utilisateur' => 
@@ -81,11 +81,11 @@ $commande = array(
 
 /* `truc`.`utilisateur` */
 $utilisateur = array(
-  array('email' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq','password' => 'alice@example.com','username' => 'Alice Johnson'),
-  array('email' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq','password' => 'bob@example.com','username' => 'Bob Smith'),
-  array('email' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq','password' => 'emily@example.com','username' => 'Emily Brown'),
-  array('email' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq','password' => 'david@example.com', 'username' => 'David Wilson'),
-  array('email' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq','password' => 'sophia@example.com', 'username' => 'Sophia Martini')
+  array('email' => 'alice@example.com','password' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq','nom' => 'Johnson', 'prenom' => 'Alice', 'telephone' => '7894561230', 'adresse' => '123 Main Street', 'cp' => '80850', 'ville' => 'Amiens'),
+  array('email' => 'bob@example.com','password' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq',  'nom' => 'Smith', 'prenom' => 'Bob','telephone' => '7418529630', 'adresse' => '456 Elm Street', 'cp' => '80610', 'ville' => 'Amiens'),
+  array('email' => 'emily@example.com','password' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq','nom' => 'Brown','prenom' => 'Emil','telephone' => '7458963210', 'adresse' => '789 Oak Avenue', 'cp' => '80000', 'ville' => 'Berto'),
+  array('email' => 'david@example.com','password' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq', 'nom' => 'Wilson', 'prenom' => 'David ', 'telephone' => '7485963210', 'adresse' => '963 Pine Street', 'cp' => '80610', 'ville' => 'Longueau' ),
+  array('email' => 'sophia@example.com','password' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq','nom'=> 'Martini', 'prenom' => 'Sophia', 'telephone' => '7412589630', 'adresse' => '258 Cedar Street', 'cp' => '80100', 'ville' => 'St Leger')
 //   array('username' => 'Michael Johnson','password' => 'michael@example.com','email' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq'),
 //   array('username' => 'Jessica Miller','password' => 'jessica@example.com','email' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq'),
 //   array('username' => 'Daniel Davis','password' => 'daniel@example.com','email' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq'),
