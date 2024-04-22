@@ -6,7 +6,7 @@ use App\Entity\Categorie;
 use App\Entity\Plat;
 use App\Entity\Detail;
 use App\Entity\Commande;
-use App\Entity\User;
+use App\Entity\Utilisateur;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -16,7 +16,24 @@ class TheDistrictFixtures extends Fixture
     {
         include 'base.php';
 
-        $categorieRepo = $manager->getRepository(Categorie::class);
+        foreach ($utilisateur as $utilisateurData) {
+            $utilisateurDB = new Utilisateur();
+            $utilisateurDB 
+             ->setEmail($utilisateurData['email']) 
+             ->setPassword($utilisateurData['password'])
+             ->setNom($utilisateurData['nom'])
+             ->setPrenom($utilisateurData['prenom'])
+             ->setTelephone($utilisateurData['telephone'])
+             ->setAdresse($utilisateurData['adresse'])
+             ->setCp($utilisateurData['cp'])
+             ->setVille($utilisateurData['ville']);
+            
+
+        
+            $manager->persist($utilisateurDB);
+        }
+        $manager->flush();
+
 
         foreach ($categorie as $catData) {
             $categorieDB = new Categorie();
@@ -44,11 +61,7 @@ class TheDistrictFixtures extends Fixture
             }
 
        
-            // $detail = $manager->getRepository(Detail::class)->find($detailData['id_detail']);
-            // if ($detail) {
-            //     $platDB->addDetail($detail);
-            // }
-            
+          
 
             $manager->persist($platDB);
         }
@@ -69,6 +82,12 @@ class TheDistrictFixtures extends Fixture
                 $detailDB->setCommande($commande);
             }
 
+            //   $detail = $manager->getRepository(Detail::class)->find($detailData['id_detail']);
+            // if ($detail) {
+            //     $platDB->addDetail($detail);
+            // }
+            
+
             $manager->persist($detailDB);
         }
         $manager->flush();
@@ -88,10 +107,10 @@ class TheDistrictFixtures extends Fixture
                 $commandeDB->addDetail($detail);
             }
 
-            // $utilisateur = $manager->getRepository(User::class)->find($commandeData['id_utilisateur']);
-            // if ($utilisateur) {
-            //     $commandeDB->setUtilisateur($utilisateur);
-            // }
+            $utilisateur = $manager->getRepository(Utilisateur::class)->find($commandeData['id_utilisateur']);
+            if ($utilisateur) {
+                $commandeDB->setUtilisateur($utilisateur);
+            }
 
             $manager->persist($commandeDB);
         }
@@ -99,26 +118,7 @@ class TheDistrictFixtures extends Fixture
 
         include 'base.php';
     
-        foreach ($utilisateur as $utilisateurData) {
-            $utilisateurDB = new User();
-            $utilisateurDB 
-             ->setEmail($utilisateurData['email']) 
-             ->setPassword($utilisateurData['password'])
-             ->setNom($utilisateurData['nom'])
-             ->setPrenom($utilisateurData['prenom'])
-             ->setTelephone($utilisateurData['telephone'])
-             ->setAdresse($utilisateurData['adresse'])
-             ->setCp($utilisateurData['cp'])
-             ->setVille($utilisateurData['ville']);
-            
 
-            $commande = $manager->getRepository(Commande::class)->find($utilisateurData['id_commande']);
-            if ($commande) {
-                $utilisateurDB->addCommande($commande);
-            }
-            $manager->persist($utilisateurDB);
-        }
-        $manager->flush();
     
         }
 
