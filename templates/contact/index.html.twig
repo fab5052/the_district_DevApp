@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{# {% block title %}Formulaire de contact{% endblock %} #}
-
+{% block title %}Formulaire de contact{% endblock %} 
 {% block body %}
 <div class="container d-block position-relative justify-content-center text-center mx-auto h-60 w-40 ">
 
@@ -13,12 +12,14 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %} #}
 
- 
+    
+{% use "bootstrap_5_layout.html.twig" %}
+
 
      {{ form_start(form) }}
 <div class="my-custom-class-for-errors">
     {{ form_errors(form) }}
-</div>
+</div> 
 
 <div class="row d-block">
 <div class="col-9 mx-auto mt-4">
@@ -39,9 +40,14 @@
     {{ form_errors(form.messages) }}
 </div>
 
-</div>
-    {{ form_end(form) }}
-    </div>
 
- 
-{% endblock %}
+    {{ form_end(form) }}
+
+
+
+
+
+
+
+
+{% endblock %}  

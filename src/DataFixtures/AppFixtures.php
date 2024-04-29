@@ -7,8 +7,10 @@ use Doctrine\Persistence\ObjectManager;
 
 class AppFixtures extends Fixture
 {
-    public function load(ObjectManager $manager): void
+    public function load(ObjectManager $manager): void   
     {
+       
+        include 'base.php';
         // $product = new Product();
         // $manager->persist($product);
 

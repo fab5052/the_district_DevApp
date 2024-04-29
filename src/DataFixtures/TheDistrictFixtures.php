@@ -7,6 +7,7 @@ use App\Entity\Plat;
 use App\Entity\Detail;
 use App\Entity\Commande;
 use App\Entity\Utilisateur;
+use App\Entity\Contact;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -116,7 +117,7 @@ class TheDistrictFixtures extends Fixture
         }
         $manager->flush();
 
-        include 'base.php';
+
     
 
     
