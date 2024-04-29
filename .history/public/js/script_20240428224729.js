@@ -1,39 +1,3 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-
-
-
-{% block title %}The District{% endblock %}
-
-
-<section class="container">
-			<h1><span class="flux">The</span> <span class="slider">District</span></h1>
-			<h2>BEST-SELLERS</h2>
-			<div id="slider">
-                <img src="image/bg.jpg" alt="" />
-				<img src="image/bg1.jpeg" alt="" />
-				<img src="image/bg2.jpeg" alt="" />
-				<img src="image/bg3.jpeg" alt="" />
-            </div>
-
-</section>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="js/flux.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" charset="utf-8">
-			$(function(){
-				if(!flux.browser.supportsTransitions)
-					alert("Flux Slider requires a browser that supports CSS3 transitions");
-					
-				window.f = new flux.slider('#slider', {
-					pagination: true
-				});
-			});
-		</script>
-       <script>
 $(function() {
     var $horizontalCollapse = $('.js-horizontal-collapse');
     
@@ -91,9 +55,4 @@ $(function() {
       });
     });
   });
-  </script>   
-
-
-
- {% endblock %}
-
+  

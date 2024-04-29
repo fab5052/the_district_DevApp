@@ -1,6 +1,7 @@
 <?php
 
 
+namespace App\DataFixtures;/* `truc`.`categorie` */
 $categorie = array(
   array('libelle' => 'Pizza','image' => 'image/category/pizza_cat.png','active' => 'Yes'),
   array('libelle' => 'Burger','image' => 'image/category/burger_cat.png','active' => 'No'),
@@ -14,6 +15,7 @@ $categorie = array(
 );
 
 
+namespace App\DataFixtures;/* `truc`.`plat` */
 $plat = array(
   array('libelle' => 'Classic burger','description' => 'Dégustez le délice intemporel de notre Burger Classique, où chaque bouchée est une symphonie de saveurs parfaitement élaborée. Niché entre deux pains briochés moelleux et toastés se trouve une généreuse portion de steak de bœuf juteux, grillé à la perfection selon votre préférence, offrant un contraste alléchant entre la saveur fumée et la tendreté de la viande.','prix' => '12.00','image' => 'image/food/plat_burger_classic.jpg','id_categorie' => 2, 'id_detail' => 1, 'active' => 'Yes'),
   array('libelle' => 'burger traditionelle','description' => 'Plongez dans une expérience gustative inoubliable avec notre Burger Traditionnel, un véritable hymne à la simplicité et au plaisir culinaire. Ce chef-d\'œuvre de saveurs réconfortantes commence par un généreux steak de bœuf grillé à la perfection, dégageant des arômes alléchants et une tendreté incomparable à chaque bouchée.','prix' => '11.00','image' => 'image/food/plat_burger.jpg','id_categorie' => 2, 'id_detail' => 2, 'active' => 'Yes'),
@@ -43,7 +45,7 @@ $plat = array(
   // array('libelle' => 'Assiette de Charcuterie','description' => 'Savourez notre délicieuse assiette de charcuterie, garnie d\'une sélection variée de spécialités charcutières telles que du jambon cru, du saucisson, du pâté, des rillettes et des cornichons. Un assortiment généreux de saveurs salées, parfait pour les amateurs de charcuterie.','prix' => '16.00','image' => 'image/food/plat_partage_charcuterie.jpg','id_categorie' => 9 ,'active' => 'Yes')
 );
 
-
+namespace App\DataFixtures;/*'detail'*/
 $detail = array(
   // array('quantite' => 3),
   array('quantite' => 2, 'id_commande' => 2, 'id_plat' => 2),
@@ -53,7 +55,7 @@ $detail = array(
   array('quantite' => 4, 'id_commande' => 5, 'id_plat' => 6)
 );
 
-
+namespace App\DataFixtures;
 $commande = array(
   array('date_commande' => '2024-03-04 08:30:00','total' => '36.00','etat' => 0,'id_detail'=> 1, 'id_utilisateur' => 1), 
   array('date_commande' => '2024-03-04 09:15:00','total' => '26.00','etat' => 2,'id_detail'=> 2, 'id_utilisateur' => 2),
@@ -77,7 +79,7 @@ $commande = array(
 
 );
 
-
+namespace App\DataFixtures;/* `truc`.`utilisateur` */
 $utilisateur = array(
   array('email' => 'alice@example.com','password' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq','nom' => 'Johnson', 'prenom' => 'Alice', 'telephone' => '7894561230', 'adresse' => '123 Main Street', 'cp' => '80850', 'ville' => 'Amiens'),
   array('email' => 'bob@example.com','password' => '$2y$10$6am1aelazku8Ish9Uoqk4eGm9Wc/xv6GTl2xf19anc.emYa4JWcDq',  'nom' => 'Smith', 'prenom' => 'Bob','telephone' => '7418529630', 'adresse' => '456 Elm Street', 'cp' => '80610', 'ville' => 'Amiens'),
