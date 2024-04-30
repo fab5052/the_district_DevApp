@@ -3,18 +3,40 @@
 {% block title %}The District{% endblock %}
 
 {% block body %}
+
 <section class="container">
-			<h1><span class="flux">The</span> <span class="slider">District</span></h1>
-			<h2>BEST-SELLERS</h2>
-			{% for categorie in categories %}
-			<div id="slider">
-				{{ categorie.label | upper }} - <b class="btn-primary p-1">{{ categories.plats | length }}</b> plats
-                {# <img src="image/bg.jpg" alt="" />
-				<img src="image/bg1.jpeg" alt="" />
-				<img src="image/bg2.jpeg" alt="" />
-				<img src="image/bg3.jpeg" alt="" /> #}
-            </div>
-			{% endfor %}
+
+    <h1><span class="flux"></span> <span class="slider"></span></h1>
+<h2>BEST-SELLERS</h2>
+    
+        {% for categorie in categories %}
+
+        <div id="slider" class="category-item">>
+    
+        <img src="{{ asset(categorie.image) }}">
+       
+  <span>{{ categorie.libelle | upper }} - <b><button class="btn-primary p-1">{{ categorie.plats | length }}</b></button> plats</span>
+ 
+{% endfor %}
+   </div>
 </section>
-            
 {% endblock %}
+      
+		
+ {# <script>
+    // Récupérer toutes les images dans le slider
+    const images = document.querySelectorAll('#slider img');
+    let currentIndex = 0;
+
+    // Fonction pour afficher l'image suivante
+    function showNextImage() {
+        images[currentIndex].style.display = 'none'; // Masquer l'image actuelle
+        currentIndex = (currentIndex + 1) % images.length; // Passer à l'image suivante (boucle)
+        images[currentIndex].style.display = 'flexbox'; // Afficher la nouvelle image
+    }
+
+    // Définir l'intervalle pour changer d'image toutes les quelques secondes
+    setInterval(showNextImage, 3000); // Change l'image toutes les 3 secondes (3000ms)
+</script> #}
+        	
+

@@ -26,11 +26,13 @@ class AccueilController extends AbstractController
     {
 
         $categories = $this->categorieRepo->findAll();
+        $plats = $this->platRepo->findAll();
 
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
 
-            'categories' => $categories
+            'categories' => $categories,
+            'plats'=> $plats
         ]);
     }
 }
