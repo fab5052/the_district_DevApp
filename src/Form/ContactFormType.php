@@ -9,14 +9,19 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ContactFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('objet')
+            ->add("objet")
+
+            // [Email(message: "Veuillez saisir une adressse e-mail valide.")]
+            // private $email;
             ->add('email')
+            
 
             //champ otionnel en ajoutant un label
             // donnant la valeur false à l'attribut required

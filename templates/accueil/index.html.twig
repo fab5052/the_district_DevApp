@@ -10,90 +10,15 @@
 <section class="container">
 			<h1><span class="flux">The</span> <span class="slider">District</span></h1>
 			<h2>BEST-SELLERS</h2>
+			{% for categorie in categories %}
 			<div id="slider">
-                <img src="image/bg.jpg" alt="" />
+				{{ categorie.label | upper }} - <b class="btn-primary p-1">{{ categories.plats | length }}</b> plats
+                {# <img src="image/bg.jpg" alt="" />
 				<img src="image/bg1.jpeg" alt="" />
 				<img src="image/bg2.jpeg" alt="" />
-				<img src="image/bg3.jpeg" alt="" />
+				<img src="image/bg3.jpeg" alt="" /> #}
             </div>
-
+			{% endfor %}
 </section>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		
-		<script src="js/flux.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" charset="utf-8">
-			$(function(){
-				if(!flux.browser.supportsTransitions)
-					alert("Flux Slider requires a browser that supports CSS3 transitions");
-					
-				window.f = new flux.slider('#slider', {
-					pagination: true
-				});
-			});
-		</script>
-       <script>
-$(function() {
-    var $horizontalCollapse = $('.js-horizontal-collapse');
-    
-    $horizontalCollapse.each(function() {
-      var $hc = $(this);
-      var itemMinWidth = $hc.data('itemMinWidth');
-      var itemMaxWidth = $hc.data('itemMaxWidth');
-      var $items = $hc.find('.js-horizontal-collapse-item');
-      $items.each(function() {
-        var $item = $(this);
-        $item.css('min-width', itemMinWidth + 'px');
-        $item.css('width', itemMinWidth + 'px');
-        $item.css('max-width', itemMaxWidth + 'px');
-        
-        $item.find('a').click(function(evt) {
-          evt.stopPropagation();
-        });
-        
-        $item.on('keypress', function(evt) {
-          if(evt.keyCode === 13 || evt.keyCode === 32) {
-            $(this).trigger('click');
-          }
-        });
-        
-        $item.on('mouseenter',function() {
-          var $this = $(this);
-          $this.siblings().removeClass('is-active');
-          $this.siblings().css('width', itemMinWidth + 'px');
-          $this.addClass('is-active');
-          $this.css('width', itemMaxWidth + 'px');
-        });
-        
-        $item.on('mouseleave',function() {
-          var $this = $(this);
-          $this.siblings().removeClass('is-active');
-          $this.siblings().css('width', itemMinWidth + 'px');
-          $this.removeClass('is-active');
-          $this.css('width', itemMinWidth + 'px');
-        });
-        
-        $item.on('click ',function() {
-          var $this = $(this);
-          $this.siblings().removeClass('is-active');
-          $this.siblings().css('width', itemMinWidth + 'px');
-          $this.toggleClass('is-active');
-          if ($this.hasClass('is-active')) {
-             $this.css('width', itemMaxWidth + 'px');
-          } else {
-            $this.css('width', itemMinWidth + 'px');
-          }
-        });
-        
-        var $itemInner = $item.find('.js-horizontal-collapse-item-inner');
-        $itemInner.css('width', itemMaxWidth + 'px');
-      });
-    });
-  });
-  </script>   
-
-
-
- {% endblock %}
-
+            
+{% endblock %}

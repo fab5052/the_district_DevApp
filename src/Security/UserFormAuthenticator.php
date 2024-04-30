@@ -15,22 +15,22 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordC
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\SecurityRequestAttributes;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
-// use Psr\Log\LoggerInterface;
+use Psr\Log\LoggerInterface;
 
 
 
 
 class UserFormAuthenticator extends AbstractLoginFormAuthenticator
  {
-//     public function __construct(LoggerInterface $securityLogger)
-//     {
-//         $this->securityLogger = $securityLogger;
-//     }
+    // public function __construct(LoggerInterface $securityLogger)
+    // {
+    //     $this->securityLogger = $securityLogger;
+    // }
     
-//     public function logSecurityIssue($message)
-//     {
-//         $this->securityLogger->info($message);
-//     }
+    // public function logSecurityIssue($message)
+    // {
+    //     $this->securityLogger->info($message);
+    // }
  
     use TargetPathTrait;
 

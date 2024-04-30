@@ -10,9 +10,9 @@ services:
         class: Psr\Log\LoggerInterface
         arguments: ['@monolog.logger.app']
 
-#     App\Service\MyService:
-#         arguments:
-#             $securityLogger: '@monolog.logger.security'
+    # App\Service\MyService:
+    #      arguments:
+    #         $securityLogger: '@monolog.logger.security'
 
     # //default configuration for services in *this* file
     _defaults:
