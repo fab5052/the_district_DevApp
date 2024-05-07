@@ -1,7 +1,6 @@
 <?php
 
 
-/* `truc`.`categorie` */
 $categorie = array(
   array('libelle' => 'Pizza','image' => 'image/category/pizza_cat.png','active' => 'Yes'),
   array('libelle' => 'Burger','image' => 'image/category/burger_cat.png','active' => 'No'),
@@ -10,12 +9,12 @@ $categorie = array(
   array('libelle' => 'Salade','image' => 'image/category/salade_cat.jpg','active' => 'Yes'),
   array('libelle' => 'Asian Food','image' =>'image/category/asian_food_cat.jpg','active' => 'No'),
   array('libelle' => 'Sandwich','image' => 'image/category/sandwich_cat.jpg','active' => 'Yes'),
-  array('libelle' => 'Veggie','image' => 'image/category/veggie_cat.jpg','active' => 'Yes'),
-  array('libelle' => 'Partage','image' => 'image/category/cat_partage.jpg','active' => 'No')
+  array('libelle' => 'Veggie','image' => 'image/category/veggie_cat.jpg','active' => 'Yes')
+ 
 );
 
 
-/* `truc`.`plat` */
+
 $plat = array(
   array('libelle' => 'Classic burger','description' => 'Dégustez le délice intemporel de notre Burger Classique, où chaque bouchée est une symphonie de saveurs parfaitement élaborée. Niché entre deux pains briochés moelleux et toastés se trouve une généreuse portion de steak de bœuf juteux, grillé à la perfection selon votre préférence, offrant un contraste alléchant entre la saveur fumée et la tendreté de la viande.','prix' => '12.00','image' => 'image/food/plat_burger_classic.jpg','id_categorie' => 2, 'id_detail' => 1, 'active' => 'Yes'),
   array('libelle' => 'burger traditionelle','description' => 'Plongez dans une expérience gustative inoubliable avec notre Burger Traditionnel, un véritable hymne à la simplicité et au plaisir culinaire. Ce chef-d\'œuvre de saveurs réconfortantes commence par un généreux steak de bœuf grillé à la perfection, dégageant des arômes alléchants et une tendreté incomparable à chaque bouchée.','prix' => '11.00','image' => 'image/food/plat_burger.jpg','id_categorie' => 2, 'id_detail' => 2, 'active' => 'Yes'),

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\AccueilRepository;
 use App\Repository\CategorieRepository;
 use App\Repository\PlatRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

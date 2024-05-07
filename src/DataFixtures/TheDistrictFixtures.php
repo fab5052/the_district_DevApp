@@ -15,7 +15,7 @@ class TheDistrictFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        include 'base.php';
+        include 'BaseScript.php';
 
         foreach ($utilisateur as $utilisateurData) {
             $utilisateurDB = new Utilisateur();
@@ -93,7 +93,7 @@ class TheDistrictFixtures extends Fixture
         }
         $manager->flush();
 
-        include 'base.php';
+        include 'BaseScript.php';
 
         foreach ($commande as $commandeData) {
             $date = new \DateTime($commandeData['date_commande']);
