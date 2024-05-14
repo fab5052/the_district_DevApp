@@ -16,6 +16,10 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    'main' => [
+        'path' => './assets/main.js',
+        'entrypoint' => true,
+    ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],
@@ -24,5 +28,31 @@ return [
     ],
     '@hotwired/turbo' => [
         'version' => '7.3.0',
+    ],
+    'vue' => [
+        'version' => '3.4.27',
+        'package_specifier' => 'vue/dist/vue.esm-bundler.js',
+        
+    ],
+    '@vue/runtime-dom' => [
+        'version' => '3.4.27',
+    ],
+    '@vue/compiler-dom' => [
+        'version' => '3.4.27',
+    ],
+    '@vue/shared' => [
+        'version' => '3.4.27',
+    ],
+    '@vue/runtime-core' => [
+        'version' => '3.4.27',
+    ],
+    '@vue/compiler-core' => [
+        'version' => '3.4.27',
+    ],
+    '@vue/reactivity' => [
+        'version' => '3.4.27',
+    ],
+    '@symfony/ux-vue' => [
+        'path' => './vendor/symfony/ux-vue/assets/dist/loader.js',   
     ],
 ];

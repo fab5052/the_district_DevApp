@@ -1,5 +1,9 @@
-import { startStimulusApp } from '@symfony/stimulus-bundle';
+import './bootstrap.js';
+import './vue.js':
+import { main } from '@symfony/ux-vue';
 
-const app = startStimulusApp();
+const app = startApp();
 // register any custom, 3rd party controllers here
-// app.register('some_controller_name', SomeImportedController);
+app.register('vue/controllers', vueImportedController);
+{import { registerVueControllerComponents } from '@symfony/ux-vue'; #}
+{import { wladaVueControllerComponents } from 'github.io'; # }

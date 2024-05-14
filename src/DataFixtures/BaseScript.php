@@ -2,9 +2,9 @@
 
 
 $categorie = array(
-  array('libelle' => 'Pizza','image' => 'image/category/pizza_cat.png','active' => 'Yes'),
-  array('libelle' => 'Burger','image' => 'image/category/burger_cat.png','active' => 'No'),
-  array('libelle' => 'Wrap','image' => 'image/category/wrap_cat.png','active' => 'Yes'),
+  array('libelle' => 'Pizza','image' => 'image/category/pizza_cat.jpg','active' => 'Yes'),
+  array('libelle' => 'Burger','image' => 'image/category/burger_cat.jpg','active' => 'No'),
+  array('libelle' => 'Wrap','image' => 'image/category/wrap_cat.jpg','active' => 'Yes'),
   array('libelle' => 'Pasta','image' => 'image/category/pasta_cat.jpg','active' => 'Yes'),
   array('libelle' => 'Salade','image' => 'image/category/salade_cat.jpg','active' => 'Yes'),
   array('libelle' => 'Asian Food','image' =>'image/category/asian_food_cat.jpg','active' => 'No'),

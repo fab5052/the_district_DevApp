@@ -2,7 +2,10 @@
     "devDependencies": {
         "@babel/core": "^7.17.0",
         "@babel/preset-env": "^7.16.0",
+        "@babel/preset-react": "^7.24.1",
         "@symfony/webpack-encore": "^4.0.0",
+        "@vue/babel-helper-vue-jsx-merge-props": "^1.4.0",
+        "@vue/babel-preset-jsx": "^1.4.0",
         "core-js": "^3.23.0",
         "regenerator-runtime": "^0.13.9",
         "webpack": "^5.74.0",
@@ -19,6 +22,7 @@
     },
     "dependencies": {
         "vue": "^3.4.27",
+        "vue-carousel-3d": "^1.0.1",
         "vue-loader": "^17.4.2",
         "vue-template-compiler": "^2.7.16"
     }
