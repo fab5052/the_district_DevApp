@@ -12,8 +12,8 @@ Encore
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or subdirectory deploy
-    //.setManifestKeyPrefix('build/')
-      .enableVersioning(Encore.isRuntimeEnvironmentConfigured)
+    .setManifestKeyPrefix('build/')
+    .enableVersioning(Encore.isRuntimeEnvironmentConfigured)
 
     /*
      * ENTRY CONFIG
@@ -21,7 +21,7 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('main', './assets/app.js', './assets/app.css', './assets/carousel-3d.umd.js')
+    .addEntry('main', './assets/app.js', 'app', './assets/app.scss', './assets/carousel-3d.umd.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -40,10 +40,10 @@ Encore
      * https://symfony.com/doc/current/frontend.html#adding-more-features
      */
     .enableVueLoader()
-    .enableVueLoader(() => {}, { 
+    {# .enableVueLoader(() => {}, { 
         runtimeCompilerBuild: false })
     //.enableVueLoader(() => {}, { 
-        useJsx: true })
+        useJsx: true }) #}
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
@@ -75,7 +75,7 @@ Encore
     //.enableIntegrityHashes(Encore.isProduction())
 
     // uncomment if you're having problems with a jQuery plugin
-    .autoProvidejQuery()
+    //.autoProvidejQuery()
 ;
 
 module.exports = Encore.getWebpackConfig();

@@ -23,7 +23,9 @@
     "dependencies": {
         "vue": "^3.4.27",
         "vue-carousel-3d": "^1.0.1",
+        "vue-coverflow": "^2.2.0",
         "vue-loader": "^17.4.2",
+        "vue-swiper": "^0.5.0",
         "vue-template-compiler": "^2.7.16"
     }
 }

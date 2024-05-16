@@ -3,9 +3,331 @@
 {% block title %}The District{% endblock %}
 
 {% block body %}
+{# {% block importmap %}   #}
+  {# {{ asset ('vue') }} #}
+
+ {# {{ encore_entry_link_tags ('main') }}  #}
+
+{# {% endblock %} #}
+
+<style >
+body {
+  background-repeat: no-repeat;
+	background-position: top center;
+  background-color: black;
+	background-size:cover;
+	overflow:hidden;
+
+}
+
+/*header
+{
+	
+	margin-top:30px;
+	position:absolute;
+	z-index:5;
+	width:420px;
+	padding-top:10px;
+	padding-bottom:10px;
+
+}*/
+
+h1{
+	
+	font-size:36px;
+	letter-spacing:-2.5px;
+	margin-left:30px;
+}
+
+h3{
+	
+	font-size:16px;
+	letter-spacing:-1.5px;
+	margin-top:5px;
+	margin-left:35px;
+}
+
+{# #fps
+{
+	margin-top:5px;
+	margin-left:35px;
+} #}
+
+a 
+{
+	color:rgba( 255, 255, 255, .65 );
+	text-decoration: none;
+}
+
+a:hover
+{
+	color:rgba( 255, 255, 255, 1 );
+}
+
+/* hardware accelatator class */	
+.trans3d
+	{
+		-webkit-transform-style: preserve-3d;
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform-style: preserve-3d;
+		-moz-transform: translate3d(0, 0, 0);
+		-ms-transform-style:preserve-3d;
+		-ms-transform: translate3d(0, 0, 0);
+		transform-style:preserve-3d;
+		transform: translate3d(0, 0, 0);
+
+	/*	-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-ms-backface-visibility:hidden;
+		backface-visibility:hidden;*/
+	}
+	
+	#contentContainer
+	{
+		position:absolute;
+		margin-left:-500px;
+		margin-top:-500px;
+		left:50%;
+		top:50%;
+		width:1000px;
+		height:550px;
+	}
+	
+	#carouselContainer
+	{
+		position:absolute;
+		margin-left:-700px;
+		margin-top:-450px;
+		left:50%;
+		top:60%;
+		width:1200px;
+		height:600px;
+	}
+	
+	.carouselItem
+	{
+		width:500px;
+		height:380px;
+		position:absolute;
+		left:50%;
+		top:50%;
+		margin-left:-120px;
+		margin-top:-90px;
+		visibility:hidden;
+	}
+	
+  .carouselItemInner 
+	{
+    width: 500px;
+		height:380px;
+		position:absolute;
+		border:3px solid rgba(255, 255, 255, .5);
+    border-radius: 10px 10px 10px 10px;
+		
+		font-size:72px;
+		left:50%;
+		top:50%;
+		margin-left:-120px;
+		margin-top:-90px;
+		text-align:center;
+		
+    overflow:hidden;
+  }
+  span .title 
+	{
+    display: flex;
+   justify-items: center;
+   vertical-align: center;
+
+    justify-content: center;
+			font-family: 'quicksandlight', Helvetica, Arial;
+	 font-style: white;
+	text-shadow: -1px -1px 4px rgba(0, 0, 0, .35);
+    filter: dropshadow(color=#000000, offx=1, offy=1);
+		
+		text-align:center;
+		
+  }
+  {# .carouselItemInner image
+	{
+    	width:320px;
+		height:130px;
+		position:relative;
+		background-color:rgba(255, 255, 255, .75);
+		border:10px solid rgba(255, 255, 255, .5);
+		color:aqua;
+		font-size:72px;
+		left:50%;
+		top:50%;
+		margin-left:-160px;
+		margin-top:-90px;
+		text-align:center;
+		padding-top:50px;
+  } #}
+</style>
 
 
+{# <header>
+		<h1>3D Carousel Using TweenMax.js & jQuery</h1>
+		<h3>A pen by <a href="https://www.twitter.com/johnblazek" target="_blank">@johnblazek</a></h3>
+		<div id="fps">Framerate: 0/60 FPS</div>
+	</header> #}
+	
+	<div id="contentContainer" class="trans3d"> 
+	<section id="carouselContainer" class="trans3d">
+  {% for categorie in categories %}
+		<figure id="item" class="carouselItem trans3d"><img class="carouselItemInner" src="{{ asset(categorie.image) }}"><div class="carouselItemInner trans3d"><span class="carouselItem trans3d title">{{ (categorie.libelle) }}</span></div> </figure>
+		{# <figure id="item2" class="carouselItem trans3d"><div class="carouselItemInner trans3d">2</div></figure>
+		<figure id="item3" class="carouselItem trans3d"><div class="carouselItemInner trans3d">3</div></figure>
+		<figure id="item4" class="carouselItem trans3d"><div class="carouselItemInner trans3d">4</div></figure>
+		<figure id="item5" class="carouselItem trans3d"><div class="carouselItemInner trans3d">5</div></figure>
+		<figure id="item6" class="carouselItem trans3d"><div class="carouselItemInner trans3d">6</div></figure>
+		<figure id="item7" class="carouselItem trans3d"><div class="carouselItemInner trans3d">7</div></figure>
+		<figure id="item8" class="carouselItem trans3d"><div class="carouselItemInner trans3d">8</div></figure> #}
+		{# <figure id="item9" class="carouselItem trans3d"><div class="carouselItemInner trans3d">9</div></figure>
+		<figure id="item10" class="carouselItem trans3d"><div class="carouselItemInner trans3d">10</div></figure>
+		<figure id="item11" class="carouselItem trans3d"><div class="carouselItemInner trans3d">11</div></figure>
+		<figure id="item12" class="carouselItem trans3d"><div class="carouselItemInner trans3d">12</div></figure>	 #}
 
+  
+
+ {% endfor %} 
+	</section>
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script style="ts">
+// set and cache variables
+		var w, container, carousel, item, image, span,  itemLength, rY, ticker; 
+		var mouseX = 0;
+		var mouseY = 0;
+  
+		var addX = 0;
+		
+		
+		// fps counter created by: https://gist.github.com/sharkbrainguy/1156092,
+		// no need to create my own :)
+		var fps_counter = {
+			
+			tick: function () 
+			{
+				// this has to clone the array every tick so that
+				// separate instances won't share state 
+				this.times = this.times.concat(+new Date());
+				var seconds, times = this.times;
+        
+				if (times.length > this.span + 1) 
+				{
+					times.shift(); // ditch the oldest time
+					seconds = (times[times.length - 1] - times[0]) / 10;
+					return Math.round(this.span / seconds);
+				} 
+				else return null;
+			},
+ 
+			times: [],
+			span: 50
+		};
+		var counter = Object.create(fps_counter); 
+
+		
+		
+		$(document).ready( init )
+		
+		function init()
+		{
+			w = $(window);
+			container = $( '#contentContainer' );
+			carousel = $( '#carouselContainer' );
+			item = $( '.carouselItem' );
+      
+			itemLength = $( '.carouselItem' ).length;
+
+			rY = 360 / itemLength;
+			radius = Math.round( (150) / Math.tan( Math.PI / itemLength ) );
+			
+			// set container 3d props
+			TweenMax.set(container, {perspective:1500})
+			TweenMax.set(carousel, {z:-(radius)})
+			
+			// create carousel item props
+			
+			for ( var i = 0; i < itemLength; i++ )
+			{
+				var $item = item.eq(i);
+				var $block = $item.find('.carouselItemInner');
+				
+        //thanks @chrisgannon!        
+        TweenMax.set($item, {rotationY:rY * i, z:radius, transformOrigin:"50% 20% " + -radius + "px"});
+				
+				animateIn( $item, $block )						
+			}
+			
+			// set mouse x and y props and looper ticker
+			window.addEventListener( "mousemove", onMouseMove, false );
+			ticker = setInterval( looper, 5000/60 );			
+		}
+		
+		function animateIn( $item, $block )
+		{
+			var $nrX = 360 * getRandomInt(2);
+			var $nrY = 360 * getRandomInt(2);
+				
+			var $nx = -(2000) + getRandomInt( 4000 )
+			var $ny = -(2000) + getRandomInt( 4000 )
+			var $nz = -2000 +  getRandomInt( 2000 )
+				
+			var $s = 1.5 + (getRandomInt( 10 ) * .1)
+			var $d = 1 - (getRandomInt( 8 ) * .1)
+			
+			TweenMax.set( $item, { autoAlpha:1, delay:$d } )	
+			TweenMax.set( $block, { z:$nz, rotationY:$nrY, rotationX:$nrX, x:$nx, y:$ny, autoAlpha:0} )
+			TweenMax.to( $block, $s, { delay:$d, rotationY:0, rotationX:0, z:0,  ease:Expo.easeInOut} )
+			TweenMax.to( $block, $s-.5, { delay:$d, x:0, y:0, autoAlpha:1, ease:Expo.easeInOut} )
+		}
+		
+		function onMouseMove(event)
+		{
+			mouseX = -(-(window.innerWidth * .5) + event.pageX) * .0025;
+			mouseY = -(-(window.innerHeight * .5) + event.pageY ) * .01;
+			mouseZ = -(radius) - (Math.abs(-(window.innerHeight * .5) + event.pageY ) - 10);
+		}
+		
+		// loops and sets the carousel 3d properties
+		function looper()
+		{
+			addX += mouseX
+			TweenMax.to( carousel, 1, { rotationY:addX, rotationX:mouseY, ease:Quint.easeOut } )
+	
+		
+		}
+		
+		function getRandomInt( $n )
+		{
+			return Math.floor((Math.random()*$n)+1);	
+		}
+    </script>
+
+
+ {% endblock %}  
+
+
+          {# <img src="image/category/asian_food_cat.jpg">
+          <img src="image/category/burger_cat.jpg">
+          <img src="image/category/pizza_cat.jpg">
+          <img src="image/category/wrap_cat.jpg">
+          <img src="image/category/veggie_cat.jpg">
+        {# ; #}
+            {# <img src="{{ asset(categorie.image) }}">  
+           </div>
+           
+               </div>
+ <div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-pagination" style="bottom: -50px;"></div>
+
+</div> 
 {# <carousel-3d>
     <slide v-for="(slide, i) in slides" :index="i" :key="i">
         <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
@@ -24,20 +346,43 @@
 }
 </style> #}
 
-<div id="app">
-{% for categorie in categories %}
-  <carousel-3d>
-<slide v-for="(slide, i) in slides" :index="i" :key="i">
+{# <div id="app"> #}
+
+{# <section class="my-10">
+	<h2 class="carousel-3D-swiper-title">Lorem ipsum dolor sit amet</h2>
+	<section class="carousel-3D-swiper-section">
+		<div class="carousel-3D-swiper">
+			<div class="swiper-wrapper" style="max-width: 1200px;">
+	          
+     
+				<div class="swiper-slide ">
+
+					<div class="image-wrapper aspect-video d-flex">
+           {% for categorie in categories %}
+            <img src="{{ asset(categorie.image) }}">  
+            </div>  </div>
+            {% endfor %}
+
+<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-pagination" style="bottom: -50px;"></div>
+
+</div>
+
+		</div>
+	</section>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js"></script>
+{% endblock %}  #}
+ {#} <carousel-3d>
+ <slide v-for="(slide, i) in slides" :index="i" :key="i">
         <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
-          <img :data-index="index" :class="{ current: isCurrent, onLeft: (leftIndex >= 0), onRight: (rightIndex >= 0) }" :src.slide="{{ asset(categorie.image) }}">    
+          <img src="{{ asset(categorie.image) }}">    
+          {# <img src="image 
        </template>
     </slide>
-     </carousel-3d>
+     </carousel-3d> %}
           
-{% endfor %}
-
-</div> 
-
 
 
 {# <script scoped>
@@ -51,10 +396,10 @@ new Vue({
     'slide': window['carousel-3d'].Slide
   }
 });
-</script>  #}
+</script> 
 <script src="https://wlada.github.io/vue-carousel-3d/js/carousel-3d.umd.js"></script> 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>  #}
 
 
 
@@ -64,7 +409,7 @@ new Vue({
 						<span>Web Designer</span>
 						<p>Lorem ipsum dolor</p>
 					</div> #}
-<script>
+{# <script>
 import autoplay from "@/carousel-3d/mixins/autoplay";
 import Controls from "@/carousel-3d/Controls";
 
@@ -515,10 +860,10 @@ export default {
     }
   }
 } 
-</script>
-<style >
+</script> #}
 
-.carousel-3d-container {
+
+{# .carousel-3d-container {
   min-height: 1px;
   width: 100%;
   position: relative;
@@ -535,10 +880,9 @@ export default {
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
   perspective: 1000px;
-} 
+}   #}
 
-</style>
-{% endblock %} 
+
 
 
 

@@ -1,4 +1,4 @@
-console.log(window);
+{# console.log(window);
 new Vue({
   el: '#app',
   data: {
@@ -8,4 +8,4 @@ new Vue({
     'carousel-3d': window['carousel-3d'].Carousel3d,
     'slide': window['carousel-3d'].Slide
   }
-})
+}) #}
