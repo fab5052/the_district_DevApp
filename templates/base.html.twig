@@ -5,26 +5,31 @@
 
         <title>{% block title %}The District{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
-              
-          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    
+          {# <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
   integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-  crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  crossorigin="anonymous"></script> #}
+  <link href="https://raw.githubusercontent.com/JohnBlazek/codepen-resources/master/3d-carousel/css/stylesheet.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  
+{#} <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css">
+<link href="https://www.unpkg.com/browse/tailwindcss@2.2.19/dist/tailwind.min.css"> #}
+  {# <link rel="stylesheet" href="{{ asset ('css/style.css') }}">  #}
+{# { importmap( @symfony/ux) }  #}
 
- 
-        {% block stylesheets %}  {% endblock %}
+        {% block stylesheets %}  {% endblock %} 
+       
       
 
         
 
     </head>
+
     <body>
+ 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ path('app_accueil')}}">Accueil</a>
+    <a class="navbar-brand" href="{{path('app_accueil') }}">Accueil</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,63 +45,103 @@
          <li class="nav-item">
         <a class="nav-link " href="{{ path('app_register')}}">S'enregistrer</a>
         </li>
-         <li class="nav-item">
-        <a class="nav-link " href="{{ path('app_logout')}}">Déconnecter</a>
-        </li>
-           <li class="nav-item">
-        <a class="nav-link " href="{{ path('app_ginlo')}}">ginlo</a>
-        </li>
-      
-      
+        {# <li class="nav-item">
+        <a class="nav-link " href="{{ path('ux_vue')}}">S'enregistrer</a>
+        </li> #}
     </ul>
     
     </div>
   </div>
 </nav>
        
-     <div  class="container-fluid ">
-        <div class=" mt-5">
-          <div class="col-sm-8 offset-sm-2">
-      
-        
-        </div></div></div>
-
-        {% block body %} {% endblock %}
-
-
-<<<<<<< HEAD
-
-		
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<div class="container-fluid position-relative">
+<div class="col-md-6 offset-2">
 
 
 
-=======
+
+
+</div>
+</div>
+
+
+   
+{% block body %}{% endblock %}  
+{#} {{ encore_entry_script_tags ('main') }}  #}
+
+
+{# <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> #}
+
+
+     
+     
+   {# <script src="{{ asset ('./js/index.js') }}"> #}
+ 
+
+           
+   {% block javascripts %}{% endblock %}
+   
+    </body>
+</html>
+
+ 		{# <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>#}
+ 
+
+{# <script>
+new Vue({
+  el: '#example',
+  data: {
+    slides: 7
+  },
+  methods: {
+    onAfterSlideChange(index) {
+      console.log('@onAfterSlideChange Callback Triggered', 'Slide Index ' + index)
+    },
+    onBeforeSlideChange(index) {
+      console.log('@onBeforeSlideChange Callback Triggered', 'Slide Index ' + index)
+    },
+    onLastSlide(index) {
+      console.log('@onLastSlide Callback Triggered', 'Slide Index ' + index)
+    }
+  },
+  components: {
+    'carousel-3d': window['carousel-3d'].Carousel3d,
+    'slide': window['carousel-3d'].Slide
+  }
+}) 
+
+</script> #}
+  {# <script src="https://wlada.github.io/vue-carousel-3d/js/carousel-3d.umd.js"></script>  #}
+  {# <script src="js/carousel.js"></script> #}
+  {# new Vue({
+  el: '#carousel3d',
+  data: {
+    slides: 7
+  },
+  components: {
+    'carousel-3d': window['carousel-3d'].Carousel3d,
+    'slide': window['carousel-3d'].Slide
+  }
+})
+</script>    #}
+
 {# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> #}
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  #}
+
+
 		
-		<script src="js/flux.min.js" type="text/javascript" charset="utf-8"></script><script type="text/javascript" charset="utf-8">
-
-
+		{# <script src="js/flux.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script type="text/javascript" charset="utf-8">
 			$(function(){
 				if(!flux.browser.supportsTransitions)
 					alert("Flux Slider requires a browser that supports CSS3 transitions");
 					
-				window.f = new flux.slider('#slider', {
+				window.f = new flux.slider('#slider',  {
 					pagination: true
 				});
 			});
-		</script>
+   
+</script>  #}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
->>>>>>> e487f8e52bc0a15d8b74a84af986a1ec5fdc5b0e
-        {% block javascripts %}{% endblock %}
-
-    </body>
-</html>
