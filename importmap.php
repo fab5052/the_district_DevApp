@@ -16,14 +16,14 @@ return [
         'path' => './assets/main.js',
         'entrypoint' => true,
     ],
-    // 'app' => [
-    //     'path' => './assets/app.scss',
-    //     'entrypoint' => true,
-    // ],
-    // 'app' => [
-    //     'path' => './assets/app.scss',
-    //     'entrypoint' => true,
-    // ],
+    'app' => [
+        'path' => './assets/styles/app.css',
+        'entrypoint' => true,
+    ],
+    'app' => [
+        'path' => './assets/styles/app.scss',
+        'entrypoint' => true,
+    ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],

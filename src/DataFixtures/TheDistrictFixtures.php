@@ -35,6 +35,7 @@ class TheDistrictFixtures extends Fixture
         }
         $manager->flush();
 
+        include 'BaseScript.php';
 
         foreach ($categorie as $catData) {
             $categorieDB = new Categorie();

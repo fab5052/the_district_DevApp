@@ -1,144 +1,281 @@
-<!DOCTYPE html>
+{# <!DOCTYPE html>
 <html lang='fr'>
-    <head>
-        <meta charset="UTF-8">
+          <head>
+                    <meta charset="UTF-8">
 
-        <title>{% block title %}The District{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-    
-          {# <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                    <title>{% block title %}The District{% endblock %}</title>
+                    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+            #}
+                      {# <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
   integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
   crossorigin="anonymous"></script> #}
-  <link href="https://raw.githubusercontent.com/JohnBlazek/codepen-resources/master/3d-carousel/css/stylesheet.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  {# <link href="https://raw.githubusercontent.com/JohnBlazek/codepen-resources/master/3d-carousel/css/stylesheet.css">
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> #}
 {#} <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css">
 <link href="https://www.unpkg.com/browse/tailwindcss@2.2.19/dist/tailwind.min.css"> #}
   {# <link rel="stylesheet" href="{{ asset ('css/style.css') }}">  #}
 {# { importmap( @symfony/ux) }  #}
 
-        {% block stylesheets %}  {% endblock %} 
-       
-      
+                    {# {% block stylesheets %}  {% endblock %} 
+             
+            
 
-        
+                    
 
-    </head>
+          </head>
 
-  
-    <body>
+          <body>
  
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{path('app_accueil') }}">Accueil</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       
-        <li class="nav-item">
-        <a class="nav-link " href="{{ path('app_contact')}}">Contact</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " href="{{ path('app_login')}}">Login</a>
-        </li>
-         <li class="nav-item">
-        <a class="nav-link " href="{{ path('app_register')}}">S'enregistrer</a>
-        </li>
-        {# <li class="nav-item">
-        <a class="nav-link " href="{{ path('ux_vue')}}">S'enregistrer</a>
-        </li> #}
-    </ul>
-    
-    </div>
+          <a class="navbar-brand" href="{{path('app_accueil') }}">Accueil</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             
+                    <li class="nav-item">
+                    <a class="nav-link " href="{{ path('app_contact')}}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="{{ path('app_login')}}">Login</a>
+                    </li>
+                     <li class="nav-item">
+                    <a class="nav-link " href="{{ path('app_register')}}">S'enregistrer</a>
+                    </li> #}
+                    {# <li class="nav-item">
+                    <a class="nav-link " href="{{ path('ux_vue')}}">S'enregistrer</a>
+                    </li> #}
+          {# </ul>
+          
+          </div>
   </div>
 </nav>
-       
-<div class="container-fluid">
+             
+<div class="container-fluid position-relative">
+<div class="col-md-6 offset-2">
+
 
 
 
 
 </div>
+</div>
 
 
    
-{% block body %}   {% endblock %}  
-{#} {{ encore_entry_script_tags ('main') }}  #}
+{% block body %}{% endblock %}  
+ {{ encore_entry_script_tags ('main') }}  #}
 
 
 {# <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> #}
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> 
 
-
-        {% block javascripts %}{% endblock %}
-     
-   {# <script src="{{ asset ('./js/index.js') }}"> #}
- 
 
            
-
-    </body>
-</html>
-
- 		{# <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>#}
+           
+   <script src="{{ asset ('./js/index.js') }}"> 
  
 
-{# <script>
-new Vue({
-  el: '#example',
-  data: {
-    slides: 7
-  },
-  methods: {
-    onAfterSlideChange(index) {
-      console.log('@onAfterSlideChange Callback Triggered', 'Slide Index ' + index)
-    },
-    onBeforeSlideChange(index) {
-      console.log('@onBeforeSlideChange Callback Triggered', 'Slide Index ' + index)
-    },
-    onLastSlide(index) {
-      console.log('@onLastSlide Callback Triggered', 'Slide Index ' + index)
-    }
-  },
-  components: {
-    'carousel-3d': window['carousel-3d'].Carousel3d,
-    'slide': window['carousel-3d'].Slide
-  }
-}) 
-
-</script> #}
-  {# <script src="https://wlada.github.io/vue-carousel-3d/js/carousel-3d.umd.js"></script>  #}
-  {# <script src="js/carousel.js"></script> #}
-  {# new Vue({
-  el: '#carousel3d',
-  data: {
-    slides: 7
-  },
-  components: {
-    'carousel-3d': window['carousel-3d'].Carousel3d,
-    'slide': window['carousel-3d'].Slide
-  }
-})
-</script>    #}
-
-{# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  #}
-
-
-		
-		{# <script src="js/flux.min.js" type="text/javascript" charset="utf-8"></script>
-    	<script type="text/javascript" charset="utf-8">
-			$(function(){
-				if(!flux.browser.supportsTransitions)
-					alert("Flux Slider requires a browser that supports CSS3 transitions");
-					
-				window.f = new flux.slider('#slider',  {
-					pagination: true
-				});
-			});
+                       
+   {% block javascripts %}{% endblock %}
    
-</script>  #}
+          </body>
+</html>#}
 
+
+<!DOCTYPE html>
+<html lang='fr'>
+ <head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="view-transition" content="same-origin"/>
+		<title>
+			{% block title %}The District
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+
+
+		{# <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+								  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+								  crossorigin="anonymous"></script>
+								  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+								          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+		{# <script src="{{ asset ('./css/style.css') }}"></script> #}
+		{% block stylesheets %}
+	
+          		{{ encore_entry_link_tags('app') }}  
+		{% endblock %}
+	
+                    
+			{% block javascripts %}
+            		{{ encore_entry_script_tags('main') }}                     
+
+		{% endblock %}
+	{# <link rel="shortcut icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}"> #}
+   </head>
+
+
+	
+
+		{% block header %}
+   
+			{# {% set _route = app.request.get('route') %} #}
+			 <header>
+			 {{ include('_partials/_nav.html.twig')}}
+				{# <nav class="navbar navbar-expand-lg fixed-top">
+					<div  class="slider-container">
+						<a class="navbar-brand" href="{{ path('app_accueil') }}">
+							Accueil
+						</a>
+						<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#appNavbar" aria-controls="appNavbar" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button> 
+
+						<div class="navbar-collapse collapse" id="appNavbar">
+							<ul class="navbar-nav ml-auto">
+						
+                       <li class="nav-item">
+		          
+                    <a class="nav-link " href="{{ path('app_categorie')}}">Catégories</a>
+                    </li> 
+                   <li class="nav-item">
+                    <a class="nav-link " href="{{ path('app_contact')}}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="{{ path('app_login')}}">Login</a>
+                    </li>
+                     <li class="nav-item">
+                    <a class="nav-link " href="{{ path('app_register')}}">S'enregistrer</a> #}
+            
+									{# <li class="nav-item{{ _route == '_partials' ? ' active' : '' }}">
+										<a class="nav-link" href="{{ path('app_accueil') }}">
+											<i class="fa fa-home" aria-hidden="true"></i>
+											{{ 'menu.homepage'|trans }}
+										</a>
+									</li>
+									{% if is_granted('ROLE_ADMIN') %}
+										<li class="nav-item">
+											<a class="nav-link" href="{{ path('admin_post_index') }}">
+												<i class="fa fa-lock" aria-hidden="true"></i>
+												{{ 'menu.admin'|trans }}
+											</a>
+										</li> 
+
+									{% endif %}
+								{% endblock %}
+
+								<li class="nav-item{{ _route == 'blog_search' ? ' active' : '' }}">
+									<a class="nav-link" href="{{ path('blog_search') }}">
+										<i class="fa fa-search"></i>
+										{{ 'menu.search'|trans }}</a>
+								</li> #}
+
+								{# {% if app.user %}
+									<li class="nav-item dropdown">
+										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="user">
+											<i class="fa fa-user" aria-hidden="true"></i>
+											<span class="caret"></span>
+											<span class="sr-only">{{ app.user.fullname }}</span>
+										</a>
+										<div class="dropdown-menu user" role="menu" aria-labelledby="user">
+											<a class="dropdown-item" href="{{ path('user_edit') }}">
+												<i class="fa fa-edit" aria-hidden="true"></i>
+												{{ 'menu.user'|trans }}
+											</a>
+											<div class="dropdown-divider"></div>
+											<a class="dropdown-item" href="{{ logout_path() }}">
+												<i class="fa fa-sign-out" aria-hidden="true"></i>
+												{{ 'menu.logout'|trans }}
+											</a>
+										</div>
+									</li>
+								{% endif %} #}
+
+								{# <li class="nav-item dropdown">
+									{% from 'default/_language_selector.html.twig' import render_language_selector %}
+									{{ render_language_selector() }}
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> #}
+
+
+
+          
+</header>
+{% endblock %}
+
+	<body>
+
+				{% block body %}
+
+			
+	
+			<div class="container body-container">
+				{# {% block main %} #}
+				<div class="row">
+					<div class="col-sm-9">
+						{# {{ include('default/_flash_messages.html.twig') }} #}
+                      
+
+</div>
+</div>
+ </div>
+					
+		{% endblock %}			
+					{# <div id="sidebar" class="col-sm-3">
+						{% block sidebar %}
+							{{ render_esi(controller('Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController::templateAction', {
+                                                                                'template': 'blog/about.html.twig',
+                                                                                'sharedAge': 600,
+                                                                                '_locale': app.request.locale
+                                                                      })) }}
+						{% endblock %} 
+					</div>
+				</div> #}
+			{# {% endblock %} #}
+		
+
+		{% block footer %}
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div id="footer-copyright" class="col-md-6">
+							<p>&copy;
+								{{ 'now'|date('Y') }}
+								- The District</p>
+							<p>{{ 'mit_license'|trans }}</p>
+						</div>
+						<div id="footer-resources" class="col-md-6">
+							<p>
+								<a rel="noopener noreferrer" target="_blank" href="https://twitter.com/symfony" title="Symfony on X (formerly Twitter)">
+									<i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+								</a>
+								<a target="_blank" href="https://symfony.com/blog/" title="Symfony Blog">
+									<i class="fa-solid fa-rss" aria-hidden="true"></i>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+		{% endblock %}
+  
+	
+  </body>
+</html>
+
+		 {# it's not mandatory to set the timezone in localizeddate(). This is done to
+								                       avoid errors when the 'intl' PHP extension is not available and the application
+								                       is forced to use the limited "intl polyfill", which only supports UTC and GMT 
+								 Page rendered on {{ 'now'|format_datetime('long', 'long', '', 'UTC') }} #}
+						
