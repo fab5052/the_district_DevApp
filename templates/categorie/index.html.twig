@@ -3,14 +3,193 @@
 {% block title %}Catégories{% endblock %}
 
 {% block body %}
+
+{% block stylesheets %}	
+<link rel="stylesheet" href="{{ asset('css/style.css')}}">
+	{% endblock %}
+
+<style>
+.horizontal-collapse {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: auto;
+  margin-left: 10vh;
+  padding-left: 0 auto;
+  justify-items: center;
+}
+
+.horizontal-collapse img {
+  min-height: 45vh;
+
+}
+
+.horizontal-collapse__inner {
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.horizontal-collapse__item {
+  min-height: 42rem;
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+  min-width: 20rem;
+  max-width: 70rem;
+  position: relative;
+  transition: width 0.8s;
+}
+
+.horizontal-collapse__item--0 {
+  background-color: red;
+}
+
+.horizontal-collapse__item--1 {
+  background-color: green;
+}
+
+.horizontal-collapse__item--2 {
+  background-color: blue;
+}
+
+.horizontal-collapse__item--3 {
+  background-color: purple;
+}
+
+.horizontal-collapse__item--4 {
+  background-color: orange;
+}
+
+.horizontal-collapse__item--5 {
+  background-color: pink;
+}
+.horizontal-collapse__item--6 {
+  background-color: white;
+}
+.horizontal-collapse__item--7 {
+  background-color: grey;
+}
+
+
+
+.horizontal-collapse__item.is-active .horizontal-collapse__inactive-content {
+  opacity: 0;
+}
+
+.horizontal-collapse__item.is-active .horizontal-collapse__active-content {
+  opacity: 1;
+}
+
+{# .horizontal-collapse__item-inner {
+  padding: 3rem;
+} #}
+
+.horizontal-collapse__inactive-content {
+  opacity: 1;
+  transition: opacity 0.5s;
+  position: absolute;
+  top: 0;
+
+}
+
+.horizontal-collapse__inactive-content .horizontal-collapse__heading {
+  user-select: none;
+  cursor: default;
+  font-size: 2.2rem;
+  line-height: 0;
+  margin-bottom: 0;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+.horizontal-collapse__active-content {
+  opacity: 0;
+  transition: opacity 0.5s;
+  cursor: default;
+}
+
+.horizontal-collapse__heading {
+  margin-bottom: 0.5rem;
+
+}
+
+.horizontal-collapse__body {
+  margin-bottom: 2rem;
+}
+
+.horizontal-collapse__link {
+  display: inline-block;
+
+  text-decoration: none;
+  line-height: 1;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.cards {
+    position: relative;
+    display: block;
+    border-radius: 3px; 
+    width: 100%;
+    height: auto;
+    border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+
+.carousel-button {
+    z-index: 1;
+   margin: 100%;
+    position: relative;
+
+
+  }
+  
+ h2 {
+ 
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    font-size: x-large;
+    display: block;
+  position: relative;
+    font-weight: 1000;
+    font-family: "neon-tubes-2-regular";
+    z-index: 1;
+ justify-content: space-between;
+    justify-items: center;
+    background-color: #3c505b77;
+    position: relative;
+   margin-bottom: 10;
+
+    letter-spacing: 0.05rem;
+    padding: 5000;
+   
+    
+  }
+  
+</style>
+
   <div class="container position-relative m-0  p-0 justify-content-center ">
-  <section class="js-horizontal-collapse horizontal-collapse " data-item-min-width="100" data-item-max-width="300">
+  <section class="js-horizontal-collapse horizontal-collapse " data-item-min-width="140" data-item-max-width="290" data-item-min-height="600" data-item-max-height="600">
     <ul class="horizontal-collapse__inner">
       {% for categorie in categories %}
         <li class="js-horizontal-collapse-item horizontal-collapse__item horizontal-collapse__item--{{ loop.index0 }}" tabindex="0" role="button">
           <div class="js-horizontal-collapse-item-inner horizontal-collapse__item-inner">
             <div class="horizontal-collapse__inactive-content">
-              <img class="js-horizontal-collapse-item-inner" src="{{ asset(categorie.image) }}">
+              <img class="js-horizontal-collapse-item-inner cards" src="{{ asset(categorie.image) }}">
               <h2 class="horizontal-collapse__heading">{{ categorie.libelle }}</h2>
             </div>
             <div class="horizontal-collapse__active-content">
@@ -89,117 +268,7 @@
 </script>
 {% endblock %}
 {# 
-<style>
-.horizontal-collapse {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-bottom: 5rem;
-  color: #fff;
-}
 
-.horizontal-collapse__inner {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-}
-
-.horizontal-collapse__item {
-  min-height: 42rem;
-  list-style: none;
-  padding: 0;
-  overflow: hidden;
-  min-width: 10rem;
-  max-width: 40rem;
-  position: relative;
-  transition: width 0.5s;
-}
-
-.horizontal-collapse__item--0 {
-  background-color: red;
-}
-
-.horizontal-collapse__item--1 {
-  background-color: green;
-}
-
-.horizontal-collapse__item--2 {
-  background-color: blue;
-}
-
-.horizontal-collapse__item--3 {
-  background-color: purple;
-}
-
-.horizontal-collapse__item--4 {
-  background-color: orange;
-}
-
-.horizontal-collapse__item--5 {
-  background-color: pink;
-}
-
-.horizontal-collapse__item.is-active .horizontal-collapse__inactive-content {
-  opacity: 0;
-}
-
-.horizontal-collapse__item.is-active .horizontal-collapse__active-content {
-  opacity: 1;
-}
-
-.horizontal-collapse__item-inner {
-  padding: 3rem;
-}
-
-.horizontal-collapse__inactive-content {
-  opacity: 1;
-  transition: opacity 0.5s;
-  position: absolute;
-  bottom: 2rem;
-  left: 1rem;
-}
-
-.horizontal-collapse__inactive-content .horizontal-collapse__heading {
-  user-select: none;
-  cursor: default;
-  font-size: 3rem;
-  line-height: 0;
-  margin-bottom: 0;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-}
-
-.horizontal-collapse__active-content {
-  opacity: 0;
-  transition: opacity 0.5s;
-  cursor: default;
-}
-
-.horizontal-collapse__heading {
-  margin-top: 0;
-  margin-bottom: 2rem;
-}
-
-.horizontal-collapse__body {
-  margin-bottom: 2rem;
-}
-
-.horizontal-collapse__link {
-  display: inline-block;
-  background-color: #fff;
-  color: #333;
-  text-decoration: none;
-  line-height: 1;
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  font-size: 1.7rem;
-  font-weight: bold;
-}
-</style> #}
 
 
 

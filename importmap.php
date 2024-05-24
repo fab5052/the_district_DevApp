@@ -12,17 +12,22 @@
  * The "importmap:require" command can be used to add new entries to this file.
  */
 return [
-    'app' => [
-        'path' => './assets/main.js',
+    'main' => [
+        'path' => 'assets/build/main.js',
         'entrypoint' => true,
     ],
     'app' => [
-        'path' => './assets/styles/app.css',
+        'path' => '/assets/build/app.css',
         'entrypoint' => true,
     ],
     'app' => [
-        'path' => './assets/styles/app.scss',
+        'path' => '/assets/styles/app.js',
         'entrypoint' => true,
+    ],    
+    'main' => [
+        'path' => 'assets/build/main.css',
+        'entrypoint' => true,
+
     ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
@@ -30,9 +35,7 @@ return [
     '@symfony/stimulus-bundle' => [
         'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
     ],
-    '@hotwired/turbo' => [
-        'version' => '7.3.0',
-    ],
+
     'vue' => [
         'version' => '3.4.27',
         'package_specifier' => 'vue/dist/vue.esm-bundler.js',
@@ -59,4 +62,5 @@ return [
     '@symfony/ux-vue' => [
         'path' => './vendor/symfony/ux-vue/assets/dist/loader.js',   
     ],
+    
 ];

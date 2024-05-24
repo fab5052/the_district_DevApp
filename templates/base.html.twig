@@ -1,92 +1,3 @@
-{# <!DOCTYPE html>
-<html lang='fr'>
-          <head>
-                    <meta charset="UTF-8">
-
-                    <title>{% block title %}The District{% endblock %}</title>
-                    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-            #}
-                      {# <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-  crossorigin="anonymous"></script> #}
-  {# <link href="https://raw.githubusercontent.com/JohnBlazek/codepen-resources/master/3d-carousel/css/stylesheet.css">
-          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> #}
-{#} <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css">
-<link href="https://www.unpkg.com/browse/tailwindcss@2.2.19/dist/tailwind.min.css"> #}
-  {# <link rel="stylesheet" href="{{ asset ('css/style.css') }}">  #}
-{# { importmap( @symfony/ux) }  #}
-
-                    {# {% block stylesheets %}  {% endblock %} 
-             
-            
-
-                    
-
-          </head>
-
-          <body>
- 
-          <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-          <a class="navbar-brand" href="{{path('app_accueil') }}">Accueil</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-             
-                    <li class="nav-item">
-                    <a class="nav-link " href="{{ path('app_contact')}}">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link " href="{{ path('app_login')}}">Login</a>
-                    </li>
-                     <li class="nav-item">
-                    <a class="nav-link " href="{{ path('app_register')}}">S'enregistrer</a>
-                    </li> #}
-                    {# <li class="nav-item">
-                    <a class="nav-link " href="{{ path('ux_vue')}}">S'enregistrer</a>
-                    </li> #}
-          {# </ul>
-          
-          </div>
-  </div>
-</nav>
-             
-<div class="container-fluid position-relative">
-<div class="col-md-6 offset-2">
-
-
-
-
-
-</div>
-</div>
-
-
-   
-{% block body %}{% endblock %}  
- {{ encore_entry_script_tags ('main') }}  #}
-
-
-{# <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> 
-
-
-           
-           
-   <script src="{{ asset ('./js/index.js') }}"> 
- 
-
-                       
-   {% block javascripts %}{% endblock %}
-   
-          </body>
-</html>#}
-
-
 <!DOCTYPE html>
 <html lang='fr'>
  <head>
@@ -102,21 +13,28 @@ integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cD
 
 		{# <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 								  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-								  crossorigin="anonymous"></script>
+								  crossorigin="anonymous"></script> #}
 								  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-								          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
-		{# <script src="{{ asset ('./css/style.css') }}"></script> #}
-		{% block stylesheets %}
+								          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 	
-          		{{ encore_entry_link_tags('app') }}  
-		{% endblock %}
-	
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+
+          		{# {{ encore_entry_link_tags('main') }}   #}
+				{# {{% import (app) %}} #}
+{# <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}"> #}
+{% block stylesheets %}	
+<link rel="stylesheet" href="{{ asset('css/style.css')}}">
+	{% endblock %}
                     
 			{% block javascripts %}
-            		{{ encore_entry_script_tags('main') }}                     
+					<script src="{{ asset('/js/bootstrap.bundle.min.js') }}" defer></script> 
+            		 {{ encore_entry_script_tags('main') }}                     
 
 		{% endblock %}
-	{# <link rel="shortcut icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}"> #}
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+			 <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+	<link rel="shortcut icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}"> 
    </head>
 
 
@@ -125,33 +43,9 @@ integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cD
 		{% block header %}
    
 			{# {% set _route = app.request.get('route') %} #}
-			 <header>
-			 {{ include('_partials/_nav.html.twig')}}
-				{# <nav class="navbar navbar-expand-lg fixed-top">
-					<div  class="slider-container">
-						<a class="navbar-brand" href="{{ path('app_accueil') }}">
-							Accueil
-						</a>
-						<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#appNavbar" aria-controls="appNavbar" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button> 
+			
+			 {{ include('_partials/_nav.html.twig')}}          
 
-						<div class="navbar-collapse collapse" id="appNavbar">
-							<ul class="navbar-nav ml-auto">
-						
-                       <li class="nav-item">
-		          
-                    <a class="nav-link " href="{{ path('app_categorie')}}">Catégories</a>
-                    </li> 
-                   <li class="nav-item">
-                    <a class="nav-link " href="{{ path('app_contact')}}">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link " href="{{ path('app_login')}}">Login</a>
-                    </li>
-                     <li class="nav-item">
-                    <a class="nav-link " href="{{ path('app_register')}}">S'enregistrer</a> #}
-            
 									{# <li class="nav-item{{ _route == '_partials' ? ' active' : '' }}">
 										<a class="nav-link" href="{{ path('app_accueil') }}">
 											<i class="fa fa-home" aria-hidden="true"></i>
@@ -203,32 +97,28 @@ integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cD
 							</ul>
 						</div>
 					</div>
-				</nav>
-			  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> #}
+				</nav> #}
+     
 
-
-
-          
-</header>
 {% endblock %}
+
 
 	<body>
 
-				{% block body %}
+{% block body %}
 
-			
-	
 			<div class="container body-container">
-				{# {% block main %} #}
+				{% block main %} 
+				<main class="main-content">
 				<div class="row">
 					<div class="col-sm-9">
-						{# {{ include('default/_flash_messages.html.twig') }} #}
+						{{ include('default/_flash_messages.html.twig') }} 
                       
 
 </div>
 </div>
- </div>
+</main>
+
 					
 		{% endblock %}			
 					{# <div id="sidebar" class="col-sm-3">
@@ -243,7 +133,7 @@ integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cD
 				</div> #}
 			{# {% endblock %} #}
 		
-
+{% endblock %}
 		{% block footer %}
 			<footer>
 				<div class="container">

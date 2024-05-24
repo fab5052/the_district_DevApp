@@ -11,7 +11,7 @@
 {# {% endblock %} #}
 
 <style >
-{# import {from} 'https://raw.githubusercontent.com/JohnBlazek/codepen-resources/master/3d-carousel/js/libs.min.js'; #}
+{# import {from} 'https://raw.githubusercontent.com/JohnBlazek/codepen-resources/master/3d-carousel/js/libs.min.js';  #}
 
 
 
@@ -27,7 +27,7 @@
 
 }*/
 
-h1{
+{# h1{
 	
 	font-size:36px;
 	letter-spacing:-2.5px;
@@ -40,7 +40,7 @@ h3{
 	letter-spacing:-1.5px;
 	margin-top:5px;
 	margin-left:35px;
-}
+} #}
 
 {# #fps
 {
@@ -68,6 +68,11 @@ h3{
 		backface-visibility:hidden;*/
 	}
 	
+.carous {
+  position: relative;
+  margin-top: 40vh;
+}
+
 	#contentContainer
 	{
 		position:absolute;
@@ -153,19 +158,20 @@ a:hover
 </style>
 
 
-	<main>
-  <section>
-	<div id="contentContainer" class="trans3d"> 
+	<main class="main-content">
+  <section class="carous contentContainer">
+	<div id="contentContainer" class="trans3d position-relative"> 
 	<section id="carouselContainer" class="trans3d">
   {% for categorie in categories %}
 		<figure id="item" class="carouselItem trans3d"><img class="carouselItemInner" src="{{ asset(categorie.image) }}"><div class="carouselItemInner trans3d"><a class="carouselItemInner title">{{ (categorie.libelle) }}</a></div> </figure>
   
-
+	
  {% endfor %} 
-	</section>
+</section>
 	</div>
   </section>
-
+  </main>
+{% block javascripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script style="ts">
@@ -239,7 +245,7 @@ function getRandomInt($n)
 </script>
 
 
-
+ {% endblock %}  
 
  {% endblock %}  
 
