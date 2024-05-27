@@ -169,7 +169,7 @@ h2, h3 {
     color: #e6e3e3;
   }
   
-form {
+/* form {
  
     justify-content: center;
     margin: auto;
@@ -201,7 +201,7 @@ form {
 textarea {
     height: 10vh;
    
-}
+} */
 
 @keyframes slideAnimation {
   

@@ -22,16 +22,6 @@ use Psr\Log\LoggerInterface;
 
 class UserFormAuthenticator extends AbstractLoginFormAuthenticator
  {
-    // public function __construct(LoggerInterface $securityLogger)
-    // {
-    //     $this->securityLogger = $securityLogger;
-    // }
-    
-    // public function logSecurityIssue($message)
-    // {
-    //     $this->securityLogger->info($message);
-    // }
- 
     use TargetPathTrait;
 
     public const LOGIN_ROUTE = 'app_login';
@@ -66,7 +56,7 @@ class UserFormAuthenticator extends AbstractLoginFormAuthenticator
 
         // For example:
         return new RedirectResponse($this->urlGenerator->generate('app_profil'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     protected function getLoginUrl(Request $request): string

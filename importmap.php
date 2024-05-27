@@ -13,21 +13,12 @@
  */
 return [
     'main' => [
-        'path' => 'assets/build/main.js',
-        'entrypoint' => true,
-    ],
-    'app' => [
-        'path' => '/assets/build/app.css',
+        'path' => 'assets/build/main.css',
         'entrypoint' => true,
     ],
     'app' => [
         'path' => '/assets/styles/app.js',
         'entrypoint' => true,
-    ],    
-    'main' => [
-        'path' => 'assets/build/main.css',
-        'entrypoint' => true,
-
     ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
@@ -35,11 +26,9 @@ return [
     '@symfony/stimulus-bundle' => [
         'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
     ],
-
     'vue' => [
         'version' => '3.4.27',
         'package_specifier' => 'vue/dist/vue.esm-bundler.js',
-        
     ],
     '@vue/runtime-dom' => [
         'version' => '3.4.27',
@@ -60,7 +49,9 @@ return [
         'version' => '3.4.27',
     ],
     '@symfony/ux-vue' => [
-        'path' => './vendor/symfony/ux-vue/assets/dist/loader.js',   
+        'path' => './vendor/symfony/ux-vue/assets/dist/loader.js',
     ],
-    
+    '@hotwired/turbo' => [
+        'version' => '7.3.0',
+    ],
 ];

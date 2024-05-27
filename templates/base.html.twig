@@ -43,7 +43,7 @@
 		{% block header %}
    
 			{# {% set _route = app.request.get('route') %} #}
-			
+			{{ include('_partials/_flash.html.twig') }} 
 			 {{ include('_partials/_nav.html.twig')}}          
 
 									{# <li class="nav-item{{ _route == '_partials' ? ' active' : '' }}">
@@ -112,7 +112,7 @@
 				<main class="main-content">
 				<div class="row">
 					<div class="col-sm-9">
-						{{ include('default/_flash_messages.html.twig') }} 
+						
                       
 
 </div>

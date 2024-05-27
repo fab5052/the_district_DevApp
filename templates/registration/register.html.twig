@@ -3,11 +3,25 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
+
+{% use "bootstrap_5_layout.html.twig" %}
+
+{% block main %} 
+	<main class="main-content ">
+{# {% block body %} #}
+
+    <h1>Register</h1>
+			<div class="container body-container my-auto mx-auto">
+				
+			
+				<div class="row">
+					<div class="col-sm-12 position-relative justify-content-center">
+
+   
+ {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
 
     {{ form_errors(registrationForm) }}
 
@@ -18,6 +32,12 @@
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button class="btn btn-lg btn-primary" type="submit">Register</button>
+       
     {{ form_end(registrationForm) }}
+    
+{% endblock %}
+ </div>
+        </div>
+        </main>
 {% endblock %}

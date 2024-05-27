@@ -16,7 +16,6 @@
                 "fetch": "eager"
             }
         }
-
     },
     "entrypoints": []
 }
