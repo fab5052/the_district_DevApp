@@ -19,7 +19,7 @@ class PlatController extends AbstractController
     }
 
 
-    #[Route('/plat', name: 'app_plat')]
+    //#[Route('/plat', name: 'app_plat')]
     public function index(): Response
     {
 

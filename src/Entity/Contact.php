@@ -13,13 +13,11 @@ use Doctrine\DBAL\Types\Types;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
-// #[ORM\Entity(repositoryClass: ContactRepository::class)]
-// class Contact
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {
-      #[ORM\Id]
+    #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
@@ -47,25 +45,36 @@ class Contact
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $messages = null;
 
-     public function getUserIdentifier(): string
-    {
-        return (string) $this->email;
-    }
-
-
-    
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-
 
     public function getId(): ?int
     {
         return $this->id;
     }
    
+    public function getObjet(): ?string
+    {
+        return $this->objet;
+    }
+
+    public function setObjet(string $objet): static
+    {
+        $this->objet = $objet;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $Email): static
+    {
+        $this->email = $Email;
+
+        return $this;
+    }
+
 
     public function getNom(): ?string
     {
@@ -92,20 +101,6 @@ class Contact
     }
 
     
-    public function getObjet(): ?string
-    {
-        return $this->objet;
-    }
-
-    public function setObjet(string $objet): static
-    {
-        $this->objet = $objet;
-
-        return $this;
-    }
-
-
-
     public function getTelephone(): ?string
     {
         return $this->Telephone;
@@ -129,8 +124,6 @@ class Contact
 
         return $this;
     }
-
-
 
 
     public function getMessages(): ?string

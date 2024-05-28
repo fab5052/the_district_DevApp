@@ -5,25 +5,25 @@ controllers:
     type: attribute
 
 
-# CatalogueController
+# MenuController
 
 
-# app_accueil:
-#     path: /
-#     controller : App\Controller\CatalogueController::index
+app_accueil:
+    path: /
+    controller : App\Controller\MenuController::index
 
 
-# app_categories:
-#     path: /categories 
-#     controller : App\Controller\CatalogueController::categorie
+app_categorie:
+    path: /categorie 
+    controller : App\Controller\MenuController::categorie
 
-# app_plats :
-#     path: /plats 
-#     controller : App\Controller\CatalogueController::plats
+app_plat :
+    path: /plat 
+    controller : App\Controller\MenuController::plat
 
-# app_plats_cat :
-#     path : /plats/{libelle}
-#     controller : App\Controller\CatalogueController::plats_cat
+app_plat_cat :
+    path : /plats/{libelle}
+    controller : App\Controller\MenuController::plat_cat
 
 
 # ContactController

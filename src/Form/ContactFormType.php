@@ -43,7 +43,7 @@ class ContactFormType extends AbstractType
                     'class' => 'form-control'
                ],
                 'label' => 'Objet',
-                'required' => true
+                'required' => false
             ])        
 
             //champ otionnel en ajoutant un label
@@ -53,7 +53,7 @@ class ContactFormType extends AbstractType
                     'class' => 'form-control'
                 ],
                 'label' => 'Votre message',
-                'required' => true
+                'required' => false
             ]          
             )
             ->add('save', SubmitType::class, [

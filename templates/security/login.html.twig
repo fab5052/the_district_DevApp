@@ -1,21 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
-{% use "bootstrap_5_layout.html.twig" %}
+
 	
 
 {% block body %}
-<main class="main-content ">
-    <form method="post">
+{% use "bootstrap_5_layout.html.twig" %}
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
         {% if app.user %}
             <div class="mb-3">
-                You are logged in as {{ app.utilisateur.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
             </div>
         {% endif %}
+        <main class="main-content ">
+    <form method="post">
 {% block main %} 
         <div class="container body-container my-auto mx-auto">
 			        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -23,11 +24,16 @@
 			
 				<div class="row">
 					<div class="col-sm-12 position-relative justify-content-center">
-
-        <label for="username">Email</label>
+        <label for="inputEmail" class="label ">Email :</label>
+        <input type="email" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    </div>
+    <div class="form-group mb-3">
+        <label for="inputPassword" class="label">Mot de passe :</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        {# <label for="username">Email</label>
         <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
         <label for="password">Password</label>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required> #}
 
         <input type="hidden" name="_csrf_token"
                value="{{ csrf_token('authenticate') }}"
@@ -44,10 +50,14 @@
             </div>
        
 
-        <button class="btn btn-lg btn-primary" type="submit">
+        <button class="btn btn-lg btn-primary" id="btn-form" type="submit">
             Sign in
         </button>
     </form>
+    <div class="text mt-5 mb-3">
+<p>Pas encore inscript cest ici </p> 
+ <a href="{{path ('app_register')}}" class="btn btn-link d-block justify-content-center">S'inscrire</a>
+</div>
     </div>
     </div>
     </div>

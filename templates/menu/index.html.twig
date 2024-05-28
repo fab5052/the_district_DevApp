@@ -159,12 +159,16 @@ a:hover
 
 
 	<main class="main-content">
+  <div id="top-categories"></div>
   <section class="carous contentContainer">
 	<div id="contentContainer" class="trans3d position-relative"> 
 	<section id="carouselContainer" class="trans3d">
   {% for categorie in categories %}
-		<figure id="item" class="carouselItem trans3d"><img class="carouselItemInner" src="{{ asset(categorie.image) }}"><div class="carouselItemInner trans3d"><a class="carouselItemInner title">{{ (categorie.libelle) }}</a></div> </figure>
-  
+		<figure id="item" class="carouselItem trans3d"><img class="carouselItemInner" src="{{ asset(categorie.image) }}" style="object-fit: cover;" ><div class="carouselItemInner trans3d"><a class="carouselItemInner title">{{ (categorie.libelle) }}</a></div> </figure>
+   <div class='button'>
+        <a href="{{ path('app_plat_cat', {'libelle': categorie.libelle}) }}" class="btn btn-link">Plats</a>
+        </div>
+
 	
  {% endfor %} 
 </section>
