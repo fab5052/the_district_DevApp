@@ -17,7 +17,7 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            custom_authenticator: App\Security\UserFormAuthenticator
+            custom_authenticator: App\Security\UserAuthenticator
             logout:
                 path: app_logout
                 # where to redirect after logout
@@ -31,7 +31,7 @@ security:
                 path: /
                 always_remember_me: true
             # form_login:
-            #     login_path: app_login
+                # login_path: app_login
             #     check_path: app_login
                 # enable_csrf: true
                 # by default, the feature is enabled by checking a checkbox in the
