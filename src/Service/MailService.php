@@ -6,6 +6,7 @@ use App\Entity\Contact;
 use Symfony\Component\Mime\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
+use App\Security\UserFormAuthenticator;
 
 class MailService
 {

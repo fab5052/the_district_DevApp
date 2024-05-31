@@ -4,16 +4,16 @@
 
 
   
-  header {
+  /* header {
     position: fixed;
     display: flex;
     top: 0;
-    width: 100%;
+    width: 100vw;
     height: 15vw;
     vertical-align: middle;
-    z-index: 1000; 
+    z-index: 1; 
 
-  }
+  } */
  
 * {
   box-sizing: border-box;
@@ -39,7 +39,7 @@ footer {
     margin-top: 20vh; 
     margin-bottom: 20vh;
   
-    height: 100vh;
+    height: 70vh;
   
     
   }
@@ -63,6 +63,7 @@ footer {
     top:0;
     z-index: 0;
    width: auto;
+   z-index: -10;
    
   }
   .slider-container {
@@ -73,18 +74,20 @@ footer {
     min-width: 100vw;
     height: 15vh;
    overflow: hidden;
-    z-index: 0;
+    z-index: -10;
   } 
 
   nav {
   position: fixed;
   width: 100vw;
-  
+  background-color: #6b666652; /* Couleur de fond du header */
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   vertical-align: middle;
-  z-index: 1000;
+  z-index: 10;
+  height: 15vh;
+ 
   
   /* box-shadow: inset 0px -1px 0px #bfbfc4; */
   
@@ -100,15 +103,25 @@ li  {
   text-decoration: none;    
 }
 
-.nav-icon .logo {
+/* .nav-icon .logo::before {
   display: flex;
   align-items: center;
   text-decoration: none;
   margin-right: 20px;
   width: 120px;
   height: 125px;
-  }
+  } */
   
+.nav-icon .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 20px;
+    margin-right: none;
+    width: 120px;
+    height: 125px;
+    }
+
 .toggle {
   display: none;
   }
@@ -123,13 +136,14 @@ li  {
 .navlinks-container a {
     display: flex;
     margin: 0 10px;
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 800;
     vertical-align: middle;
   
     color: #c6ccd6;
     text-shadow: solid 4px #d9d9de;
     position: relative;
+    z-index: 10;
   }
   
   
@@ -145,7 +159,7 @@ li  {
     vertical-align: middle;
     color: #69717ecd;
     text-shadow: solid 4px #cdcdd4;
-    z-index: 1000;
+    z-index: 10;
   }
   
   .navlinks-container a::after {
@@ -161,7 +175,7 @@ li  {
     transform-origin: left;
     background: #ccc4c462;
     transition: transform 0.3s ease-out;
-    z-index: 1000;
+    z-index: 15;
   }
   
   .navlinks-container a:hover::after {
@@ -171,11 +185,12 @@ li  {
   .nav-authentication {
     display: flex;
     vertical-align: middle;
-    min-width: 23vh;
-  
+    min-width: 10vh;
+  margin-right: 15px;
     justify-content: space-around;
     color: #f0f5f6;
     order: 3;
+    z-index: 10;
   }
   
   
@@ -323,14 +338,14 @@ textarea {
   
 
   
-.carousel-image {
+/* .carousel-image {
    
     height: auto; 
     width: auto; 
    position: relative;
   
     z-index: -1;
-  }
+  } */
 
 
 
@@ -352,15 +367,15 @@ input[type=radio] {
 }
 
 
-.carousel-button {
+/* .carousel-button {
     z-index: 1;
    margin: 100%;
     position: relative;
 
 
-  }
+  } */
   
- span.title  {
+ /* span.title  {
  
     width: 100%;
     height: 10%;
@@ -381,7 +396,7 @@ input[type=radio] {
     padding: 5000;
    
     
-  }
+  } */
   
   
   hr {
@@ -611,35 +626,38 @@ input[type=radio] {
 @media (max-width: 768px) {
 
 .main-navlinks {
-    width: auto;
+    width: 20vh;
+    vertical-align: text-top;
   }
   
-  .nav-icon {
+.nav-icon {
     order: 2;
   }
   
-  .toggle {
+.toggle {
     display: flex;
     position: relative;
     justify-content: start;
     width: 50px;
     height: 50px;
     justify-items: center;
-    background: #c2c2c3c1;
-    box-shadow: 0 5px 15px rgba(37, 37, 41, 0.897);
+    background: #afafbbaf;
+    box-shadow: 0 5px 15px rgba(119, 119, 128, 0.952);
     border-radius: 6px;
-    border-color: #898888;
+    border-color: #dacece;
     align-items: center;
     cursor: pointer;
     overflow: hidden;
+    margin-left: 15px;
     padding: 0 10px;
+    z-index: 15;
    
   }
   
   .toggle span {
     position: absolute;
   
-    width: 40px;
+    width: 38px;
     height: 5px;
     background: #eb080cab;
     border-radius: 10px;
@@ -650,8 +668,8 @@ input[type=radio] {
   
   .toggle span:nth-child(1) {
     transform: translateY(-15px);
-    width: 30px;
-    left: 15px;
+    width:34px;
+    left: 12px;
   }
   
   .toggle.active span:nth-child(1) {
@@ -671,7 +689,7 @@ input[type=radio] {
   
   .toggle.active span:nth-child(2) {
   
-    width: 40px;
+    width: 38px;
     transform: translateY(0) rotate(315deg);
     transition-delay: 0.25s;
   }
@@ -791,7 +809,8 @@ input[type=radio] {
   
   #search {
     height: 35px;
-    min-width: 25px;
+    width: auto;
+    min-width: 30px;
     position: relative;
     order: 6;
   }

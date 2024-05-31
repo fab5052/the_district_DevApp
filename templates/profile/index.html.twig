@@ -3,6 +3,11 @@
 {% block title %}The District Votre Profile !{% endblock %}
 
 {% block body %}
+{% if app.user %}
+{# <div class="col-3 justify-content-center mb-3 ">
+           <strong> Vous êtes connectez: {{ app.user.userIdentifier }}</strong>
+   </div> #}
+ 
 <div class="container" id="mentions" >
 <h1>Heureux de vous Revoir  {{informations.prenom}} !!!</h1>
 </div>
@@ -37,7 +42,7 @@
         </div>
     </div>
 </div>
-
+   {% endif %}
 {% if app.user %}
 <a href="{{ path('app_logout') }}" class="btn btn-link d-block justify-content-center" type="button">Se deconnecté</a>
     {% endif %}

@@ -9,6 +9,8 @@
  {# {{ encore_entry_link_tags ('main') }}  #}
 
 {# {% endblock %} #}
+{% block stylesheets %}	
+{# <link rel="stylesheet" href="{{ asset('css/style.css')}}"> #}
 
 <style >
 {# import {from} 'https://raw.githubusercontent.com/JohnBlazek/codepen-resources/master/3d-carousel/js/libs.min.js';  #}
@@ -127,13 +129,9 @@ h3{
     overflow:hidden;
   }
 
-  a 
-{
-	color:rgba( 255, 255, 255, .65 );
-	text-decoration: none;
-}
 
-a:hover
+
+{# a:hover
 {
 	color:rgba( 255, 255, 255, 1 );
 }
@@ -153,28 +151,52 @@ a:hover
 		
 		text-align:center;
 		
-  }
+  } #}
+
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
 
 </style>
 
-
-	<main class="main-content">
-  <div id="top-categories"></div>
+	{% endblock %}
+		<main class="main-content">
+	<div class="container-fluid col-sm-12 col-md-6 col-lg-4">
   <section class="carous contentContainer">
 	<div id="contentContainer" class="trans3d position-relative"> 
 	<section id="carouselContainer" class="trans3d">
   {% for categorie in categories %}
 		<figure id="item" class="carouselItem trans3d"><img class="carouselItemInner" src="{{ asset(categorie.image) }}" style="object-fit: cover;" ><div class="carouselItemInner trans3d"><a class="carouselItemInner title">{{ (categorie.libelle) }}</a></div> </figure>
-   <div class='button'>
+   {# <div class='button'>
         <a href="{{ path('app_plat_cat', {'libelle': categorie.libelle}) }}" class="btn btn-link">Plats</a>
-        </div>
+        </div> #}
 
 	
  {% endfor %} 
 </section>
 	</div>
+  <button id="prevBtn" class="carousel-control prev">Précédent</button>
+    <button id="nextBtn" class="carousel-control next">Suivant</button>
   </section>
   </main>
+  </div>
+
 {% block javascripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -199,7 +221,7 @@ function init()
     radius = Math.round((170) / Math.tan(Math.PI / itemLength));
 
     // set container 3d props
-    TweenMax.set(container, {perspective: 3700});
+    TweenMax.set(container, {perspective: 3500});
     TweenMax.set(carousel, {z: -(radius)});
     
     // create carousel item props
@@ -208,10 +230,13 @@ function init()
         var $item = item.eq(i);
         var $block = $item.find('.carouselItemInner');
         
-        //thanks @chrisgannon!        
         TweenMax.set($item, {rotationY: rY * i, z: radius, transformOrigin: "50% 50% " + -radius + "px"});
         animateIn($item, $block);
     }
+
+    // Event listeners for buttons
+    $('#prevBtn').on('click', rotateCarousel.bind(null, -1));
+    $('#nextBtn').on('click', rotateCarousel.bind(null, 1));
     
     // set looper ticker
     ticker = setInterval(looper, 5000 / 60); // 60 FPS
@@ -235,19 +260,25 @@ function animateIn($item, $block)
     TweenMax.to($block, $s - .5, {delay: $d, x: 0, y: 0, autoAlpha: 1, ease: Expo.easeInOut});
 }
 
-// loops and sets the carousel 3d properties
-function looper()
-{
-    rotationY += 0.5; // Change this value to control the rotation speed
+// Function to handle rotation manually
+function rotateCarousel(direction) {
+    rotationY += direction * rY;
     TweenMax.to(carousel, 1, {rotationY: rotationY, ease: Quint.easeOut});
 }
 
+// loops and sets the carousel 3d properties
+{# function looper()
+{
+    rotationY += 0.5; // Change this value to control the rotation speed
+    TweenMax.to(carousel, 1, {rotationY: rotationY, ease: Quint.easeOut});
+} #}
+
 function getRandomInt($n)
 {
-    return Math.floor((Math.random() * $n) + 1);	
+    return Math.floor((Math.random() * $n) + 1);    
 }
-</script>
 
+</script>
 
  {% endblock %}  
 

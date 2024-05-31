@@ -10,7 +10,6 @@ use Symfony\Component\Mime\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-// use Symfony\Component\Form\Extension\Core\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -23,14 +22,27 @@ class ContactFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-         ->add('email', EntityType::class, [
+            ->add('nom', 
+        TextType::class, [
+            'attr' => [
+                'class' => 'form-control'
+            ],
+            'label' => 'Nom'
+        ])
+            ->add('prenom', TextType::class, [
+            'attr' => [
+                'class' => 'form-control'
+            ],
+            'label' => 'Prénom'
+        ])
+            ->add('telephone', 
+            TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                'label' => 'name',
-                'required' => true
+                'label' => 'Téléphone'
             ])
-             ->add('email', EmailType::class, [
+            ->add('email', EmailType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ],
@@ -38,14 +50,20 @@ class ContactFormType extends AbstractType
                 'required' => true
             ])
             
-            ->add("objet", TextType::class,  [      
+            ->add('objet', TextType::class,  [      
                'attr' => [
                     'class' => 'form-control'
                ],
                 'label' => 'Objet',
                 'required' => false
             ])        
-
+        //     ->add('demande', TextareaType::class, [
+        //         'attr' => [
+        //            'class' => 'form-control'
+        //        ],
+        //        'label' => 'Demande',
+        //        'required' => false
+        //    ])
             //champ otionnel en ajoutant un label
             // donnant la valeur false à l'attribut required
             ->add('messages', TextareaType::class, [
@@ -54,8 +72,7 @@ class ContactFormType extends AbstractType
                 ],
                 'label' => 'Votre message',
                 'required' => false
-            ]          
-            )
+            ])
             ->add('save', SubmitType::class, [
                  'attr' => [
                     'class' => 'form-control'

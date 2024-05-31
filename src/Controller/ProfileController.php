@@ -16,12 +16,14 @@ class ProfileController extends AbstractController
     {
         return $this->render('profile/profile.html.twig', [
             'controller_name' => 'ProfileController'
+
+            
         ]);
+      
     }
-
-
-
     private $userRepo;
+
+
     public function __construct(UtilisateurRepository $userRepo)
     {
         $this->userRepo = $userRepo;

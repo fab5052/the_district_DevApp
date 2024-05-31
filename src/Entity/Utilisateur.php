@@ -142,17 +142,17 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getIsVerified(): bool
-    {
-        return $this->isVerified;
-    }
+    // public function isVerified(): bool
+    // {
+    //     return $this->isVerified;
+    // }
 
-    public function setIsVerified(bool $isVerified): static
-    {
-        $this->isVerified = $isVerified;
+    // public function setIsVerified(bool $isVerified): static
+    // {
+    //     $this->isVerified = $isVerified;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getNom(): ?string
     {

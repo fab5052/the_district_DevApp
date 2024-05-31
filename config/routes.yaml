@@ -56,7 +56,7 @@ app_register :
 
 
 app_profile :
-    path : /profil
+    path : /profile
     controller : App\Controller\ProfileController::index
 
 app_detail_profile :

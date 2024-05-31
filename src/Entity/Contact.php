@@ -45,6 +45,9 @@ class Contact
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $messages = null;
 
+    #[ORM\Column(type: 'boolean')]
+    private $isVerified = false;
+
 
     public function getId(): ?int
     {
@@ -137,7 +140,22 @@ class Contact
 
         return $this;
     }
+
+       public function getIsVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
 }
+
+
 // namespace App\Entity;
 
 // use App\Repository\ContactRepository;
