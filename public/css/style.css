@@ -468,8 +468,16 @@ input[type=radio] {
   }
     
   p {
-    color: #3391b3;
-  
+    color: #cbdce2;
+  }
+
+.carous {
+    position: relative;
+    margin-top: 50vh;
+    justify-content: center;
+    width: 100%;
+    left:50;
+    align-items: center;
   
   }
   
@@ -624,6 +632,15 @@ input[type=radio] {
   }
   
 @media (max-width: 768px) {
+  /* #contentContainer  {
+    position: relative;
+    margin-top: 50vh;
+    justify-content: center;
+    width: auto;
+    
+    align-items: center;
+  
+  } */
 
 .main-navlinks {
     width: 20vh;
@@ -742,10 +759,21 @@ input[type=radio] {
     color: #898888;
     border: solid 2px;
   }
-  }
   
   
-  @media (max-width: 767px) {
+  
+  
+  .carous {
+      position: relative;
+      margin-top: 50vh;
+      justify-content: center;
+      width: auto;
+      
+      align-items: center;
+    
+    }
+    
+
     .accordion-group {
       height: 360px;
     }

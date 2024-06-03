@@ -5,24 +5,36 @@
 {% block body %}
 
 {% block stylesheets %}	
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-	{% endblock %}
+	
 
 <style>
 .horizontal-collapse {
-  width: 100%;
-  margin: 0 auto;
+  flex: 1 1 80%;
+  width: 100vw; 
+  margin: auto 0;
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-bottom: auto;
-  margin-left: 10vh;
-  padding-left: 0 auto;
+  margin-left: auto 0;
+  padding-left: auto 0;
   justify-items: center;
+
 }
 
-.horizontal-collapse img {
-  min-height: 45vh;
+.horizontal-collapse__inner img {
+  max-height: 60vh;
+  min-height: 60vh;
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  min-width:auto;
+ 
 
 }
 
@@ -31,6 +43,34 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+  color: white;
+  border-radius: 2rem;
+  font-size: 3.7rem;
+  font-weight: bold;
+
+}
+
+.horizontal-collapse__inner .cards {
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  border-radius: 2rem;
+  font-size: 4rem;
+  font-weight: bold;
+
+}
+
+.horizontal-collapse__inner .cards p {
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  border-radius: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
 
 }
 
@@ -39,14 +79,16 @@
   list-style: none;
   padding: 0;
   overflow: hidden;
-  min-width: 20rem;
-  max-width: 70rem;
+  min-width: auto;
+  max-width: auto;
   position: relative;
   transition: width 0.8s;
+ 
 }
 
 .horizontal-collapse__item--0 {
   background-color: red;
+   
 }
 
 .horizontal-collapse__item--1 {
@@ -69,7 +111,7 @@
   background-color: pink;
 }
 .horizontal-collapse__item--6 {
-  background-color: white;
+  background-color: yellow;
 }
 .horizontal-collapse__item--7 {
   background-color: grey;
@@ -85,28 +127,53 @@
   opacity: 1;
 }
 
-{# .horizontal-collapse__item-inner {
-  padding: 3rem;
-} #}
+.horizontal-collapse__item-inner {
+  padding: 2rem;
+  font-size: 3.7rem;
+ 
+   z-index:-10;
+}
 
 .horizontal-collapse__inactive-content {
   opacity: 1;
   transition: opacity 0.5s;
   position: absolute;
   top: 0;
+ 
+}
+
+.horizontal-collapse__inactive-content .h2 {
+  color: white;
+  border-radius: 2rem;
+  font-size: 4rem;
+  font-weight: bold;
 
 }
 
 .horizontal-collapse__inactive-content .horizontal-collapse__heading {
   user-select: none;
   cursor: default;
-  font-size: 2.2rem;
+ text-shadow: solid 4px  #d9d9de;
+  color: #cbdce2;
+  border-radius: 2rem;
+  font-size: 4rem;
+  font-weight: bold;
   line-height: 0;
-  margin-bottom: 0;
-  justify-content: center;
+  margin-top: 15px;
+  margin-left: 10px;
+  justify-items: center;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
+  min-width: auto;
+}
+
+.horizontal-collapse__inactive-content  {
+    color: white;
+  border-radius: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center:
 }
 
 .horizontal-collapse__active-content {
@@ -115,13 +182,23 @@
   cursor: default;
 }
 
-.horizontal-collapse__heading {
-  margin-bottom: 0.5rem;
+.horizontal-collapse__heading h2 {
+  
+  color: white;
+  border-radius: 4rem;
+  font-size: 3.7rem;
+  font-weight: bold;
+  justify-content: center;
 
 }
 
 .horizontal-collapse__body {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+.horizontal-collapse__body p {
+   color: white;
+  
+  font-size: 2.7rem;
 }
 
 .horizontal-collapse__link {
@@ -131,61 +208,87 @@
   line-height: 1;
   padding: 1rem 2rem;
   border-radius: 2rem;
-  font-size: 1.7rem;
+  font-size: 3.7rem;
   font-weight: bold;
 }
 
-.cards {
-    position: relative;
-    display: block;
+.horizontal-collapse__item-inner  .cards {
+  
+display:block;
+position: absolute;
     border-radius: 3px; 
-    width: 100%;
+  
+   
     height: auto;
     border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
-    transition: transform 0.5s ease;
+   
     cursor: pointer;
     background-color: transparent;
     border: none;
-}
+} 
 
 
-.carousel-button {
+{#}.carousel-button {
     z-index: 1;
    margin: 100%;
     position: relative;
 
 
-  }
+  } #}
   
- h2 {
- 
-    width: 100%;
-    height: 10%;
+{# .horizontal-collapse .h2 {
     text-align: center;
-    font-size: x-large;
+    font-size: xx-large;
     display: block;
-  position: relative;
+
     font-weight: 1000;
     font-family: "neon-tubes-2-regular";
     z-index: 1;
- justify-content: space-between;
+    color: white;
+
     justify-items: center;
     background-color: #3c505b77;
-    position: relative;
-   margin-bottom: 10;
+
+   margin-bottom:auto;
 
     letter-spacing: 0.05rem;
-    padding: 5000;
+  
    
     
-  }
-  
-</style>
+  } #}
 
-  <div class="container-fluid col-sm-8 col-md-6 position-relative m-0  p-0 justify-content-center ">
-  <section class="js-horizontal-collapse horizontal-collapse " data-item-min-width="140" data-item-max-width="290" data-item-min-height="600" data-item-max-height="600">
-    <ul class="horizontal-collapse__inner">
+.horizontal-collapse {
+
+@media (max-width: 768px) {
+  .horizontal-collapse__item {
+    flex: 1 1 80%;
+  }
+}
+
+{# @media (min-width: 769px) and (max-width: 1200px) {
+  .horizontal-collapse__item {
+    flex: 1 1 45%;
+  }
+}
+
+@media (min-width: 1201px) {
+  .horizontal-collapse__item {
+    flex: 1 1 30%;
+  }
+} #}
+}
+</style>
+{% endblock %}
+
+{% use "bootstrap_5_layout.html.twig" %}
+
+<div class="container-fluid col-sm-12">
+<section class="js-horizontal-collapse horizontal-collapse " data-item-width="120" data-item-max-width="200">
+
+  <ul class="horizontal-collapse__inner">
       {% for categorie in categories %}
+
+        
         <li class="js-horizontal-collapse-item horizontal-collapse__item horizontal-collapse__item--{{ loop.index0 }}" tabindex="0" role="button">
           <div class="js-horizontal-collapse-item-inner horizontal-collapse__item-inner">
             <div class="horizontal-collapse__inactive-content">
@@ -194,18 +297,20 @@
             </div>
             <div class="horizontal-collapse__active-content">
               <h2 class="horizontal-collapse__heading">{{ categorie.libelle }}</h2>
-              <p class="horizontal-collapse__body">
+              {# <p class="horizontal-collapse__body">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate?
-              </p>
+              </p> #}
             </div>
           </div>
          </li>
+        
       {% endfor %}
   
-         </ul>
+         </ul >
   </section>
 </div>
 
+{% block javascripts %}
 <script type="text/javascript" charset="utf-8">
   $(function() {
     var $horizontalCollapse = $('.js-horizontal-collapse');
@@ -266,202 +371,10 @@
     });
   });
 </script>
+{# <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> #}
 {% endblock %}
-{# 
+
+	{% endblock %}
 
 
 
-
-{# {% extends 'base.html.twig' %}
-
-{% block title %}Catégories{% endblock %}
-
-{% block body %}
-
-<div class="container-fluid position-relative">
-<section class="js-horizontal-collapse  horizontal-collapse" data-item-min-width="150" data-item-max-width="500">
-  <ul class="horizontal-collapse__inner">
-    <li class="js-horizontal-collapse-item  horizontal-collapse__item  horizontal-collapse__item--0" tabindex="0" role="button">
-
-      <div class="js-horizontal-collapse-item-inner  horizontal-collapse__item-inner">
-        <div class="horizontal-collapse__inactive-content">
-          {% for categorie in categories %}
-                  <img class="js-horizontal-collapse-item-inner " src="{{ asset(categorie.image) }}">
-
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-        </div>
-        <div class="horizontal-collapse__active-content">
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-          <p class="horizontal-collapse__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate?</p>
-        </div>
-      </div>
-    </li>
-     <li class="js-horizontal-collapse-item  horizontal-collapse__item  horizontal-collapse__item--1" tabindex="0" role="button">
-  
-      <div class="js-horizontal-collapse-item-inner  horizontal-collapse__item-inner">
-        <div class="horizontal-collapse__inactive-content">
-          
-                  <img class="js-horizontal-collapse-item-inner " src="{{ asset(categorie.image) }}">
-
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-        </div>
-        <div class="horizontal-collapse__active-content">
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-          <p class="horizontal-collapse__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate?</p>
-        </div>
-      </div>
-    </li>
-  <li class="js-horizontal-collapse-item  horizontal-collapse__item  horizontal-collapse__item--2" tabindex="0" role="button">
-      <div class="js-horizontal-collapse-item-inner  horizontal-collapse__item-inner">
-        <div class="horizontal-collapse__inactive-content">
-                  <img class="js-horizontal-collapse-item-inner " src="{{ asset(categorie.image) }}">
-
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-        </div>
-        <div class="horizontal-collapse__active-content">
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-          <p class="horizontal-collapse__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate?</p>
-        </div>
-      </div>
-    </li>
-  <li class="js-horizontal-collapse-item  horizontal-collapse__item  horizontal-collapse__item--3" tabindex="0" role="button">
-      <div class="js-horizontal-collapse-item-inner  horizontal-collapse__item-inner">
-        <div class="horizontal-collapse__inactive-content">
-                  <img class="js-horizontal-collapse-item-inner " src="{{ asset(categorie.image) }}">
-
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-        </div>
-        <div class="horizontal-collapse__active-content">
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-     
-          <p class="horizontal-collapse__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate?</p>
-        </div>
-      </div>
-    </li>
-      <li class="js-horizontal-collapse-item  horizontal-collapse__item  horizontal-collapse__item--5" tabindex="0" role="button">
-     <div class="js-horizontal-collapse-item-inner  horizontal-collapse__item-inner">
-        <div class="horizontal-collapse__inactive-content">
-                  <img class="js-horizontal-collapse-item-inner " src="{{ asset(categorie.image) }}">
-
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-        </div>
-        <div class="horizontal-collapse__active-content">
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-          <p class="horizontal-collapse__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate?</p>
-        </div>
-      </div>
-    </li>
-    <li class="js-horizontal-collapse-item  horizontal-collapse__item  horizontal-collapse__item--6" tabindex="0" role="button">
-  
-      <div class="js-horizontal-collapse-item-inner  horizontal-collapse__item-inner">
-        <div class="horizontal-collapse__inactive-content">
-                  <img class="js-horizontal-collapse-item-inner " src="{{ asset(categorie.image) }}">
-
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-        </div>
-        <div class="horizontal-collapse__active-content">
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-          <p class="horizontal-collapse__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate?</p>
-        </div>
-      </div>
-    </li>
-  <li class="js-horizontal-collapse-item  horizontal-collapse__item  horizontal-collapse__item--7" tabindex="0" role="button">
-      <div class="js-horizontal-collapse-item-inner  horizontal-collapse__item-inner">
-        <div class="horizontal-collapse__inactive-content">
-                  <img class="js-horizontal-collapse-item-inner " src="{{ asset(categorie.image) }}">
-
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-        </div>
-        <div class="horizontal-collapse__active-content">
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-          <p class="horizontal-collapse__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate?</p>
-        </div>
-      </div>
-    </li>
-  <li class="js-horizontal-collapse-item  horizontal-collapse__item  horizontal-collapse__item--8" tabindex="0" role="button">
-      <div class="js-horizontal-collapse-item-inner  horizontal-collapse__item-inner">
-        <div class="horizontal-collapse__inactive-content">
-                  <img class="js-horizontal-collapse-item-inner " src="{{ asset(categorie.image) }}">
-
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-        </div>
-        <div class="horizontal-collapse__active-content">
-
-          <h2 class="horizontal-collapse__heading">{{ (categorie.libelle) }}</h2>
-     
-          <p class="horizontal-collapse__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate?</p>
-        </div>
-      </div>
-   
-      </li>
-      </ul>
-     </section> 
-      {% endfor %} 
-      
-
-</div>
-
-
-<script type="text/javascript" charset="utf-8">
-$(function() {
-    var $horizontalCollapse = $('.js-horizontal-collapse');
-    
-    $horizontalCollapse.each(function() {
-      var $hc = $(this);
-      var itemMinWidth = $hc.data('itemMinWidth');
-      var itemMaxWidth = $hc.data('itemMaxWidth');
-      var $items = $hc.find('.js-horizontal-collapse-item');
-      $items.each(function() {
-        var $item = $(this);
-        $item.css('min-width', itemMinWidth + 'px');
-        $item.css('width', itemMinWidth + 'px');
-        $item.css('max-width', itemMaxWidth + 'px');
-        
-        $item.find('a').click(function(evt) {
-          evt.stopPropagation();
-        });
-        
-        $item.on('keypress', function(evt) {
-          if(evt.keyCode === 13 || evt.keyCode === 32) {
-            $(this).trigger('click');
-          }
-        });
-        
-        $item.on('mouseenter',function() {
-          var $this = $(this);
-          $this.siblings().removeClass('is-active');
-          $this.siblings().css('width', itemMinWidth + 'px');
-          $this.addClass('is-active');
-          $this.css('width', itemMaxWidth + 'px');
-        });
-        
-        $item.on('mouseleave',function() {
-          var $this = $(this);
-          $this.siblings().removeClass('is-active');
-          $this.siblings().css('width', itemMinWidth + 'px');
-          $this.removeClass('is-active');
-          $this.css('width', itemMinWidth + 'px');
-        });
-        
-        $item.on('click ',function() {
-          var $this = $(this);
-          $this.siblings().removeClass('is-active');
-          $this.siblings().css('width', itemMinWidth + 'px');
-          $this.toggleClass('is-active');
-          if ($this.hasClass('is-active')) {
-             $this.css('width', itemMaxWidth + 'px');
-          } else {
-            $this.css('width', itemMinWidth + 'px');
-          }
-        });
-        
-        var $itemInner = $item.find('.js-horizontal-collapse-item-inner');
-        $itemInner.css('width', itemMaxWidth + 'px');
-      });
-    });
-  });
-  
-</script>
-
- 
-{% endblock %} #}
