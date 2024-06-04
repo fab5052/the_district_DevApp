@@ -5,23 +5,12 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="view-transition" content="same-origin"/>
 		<title>
-			{% block title %}The District
-			{% endblock %}
+			{% block title %}The District	{% endblock %}
+		
 		</title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
 
 
-{# <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-								  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-								  crossorigin="anonymous"></script>  #}
-								  {
-	
-
-{# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  #}
-
-          		{# {{ encore_entry_link_tags('main') }}   #}
-				{# {{% import (app) %}} #}
-{# <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}"> #}
 {% block stylesheets %}	
 <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 	{% endblock %}
@@ -42,9 +31,17 @@
 		{% block header %}
    {# <header class="container-fluid col-xs-12 col-sm-12 col-md-6 col-lg-4"> #}
 			{# {% set _route = app.request.get('route') %} #}
-			 {{ include('_partials/_nav.html.twig')}}          
+			 {{ include('_partials/_nav.html.twig')}}
 
-									{# <li class="nav-item{{ _route == '_partials' ? ' active' : '' }}">
+			 {% if app.user and app.user.isVerified == false %}
+			<div class="alert alert-warning alert-dismissible" role="alert">
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				<div class="alert-message">
+					<strong>Votre compte n'est pas activé</strong>, <a href="{{ path('resend_verif') }}">renvoyer le lien d'activation</a>
+				</div>
+			</div>          
+{% endif %}
+								{#/*	 <li class="nav-item{{ _route == '_partials' ? ' active' : '' }}">
 										<a class="nav-link" href="{{ path('app_accueil') }}">
 											<i class="fa fa-home" aria-hidden="true"></i>
 											{{ 'menu.homepage'|trans }}
@@ -59,15 +56,14 @@
 										</li> 
 
 									{% endif %}
-								{% endblock %}
+							
 
 								<li class="nav-item{{ _route == 'blog_search' ? ' active' : '' }}">
 									<a class="nav-link" href="{{ path('blog_search') }}">
 										<i class="fa fa-search"></i>
 										{{ 'menu.search'|trans }}</a>
-								</li> #}
-
-								{# {% if app.user %}
+								</li> 
+								{{% if app.user %}
 									<li class="nav-item dropdown">
 										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="user">
 											<i class="fa fa-user" aria-hidden="true"></i>
@@ -86,9 +82,9 @@
 											</a>
 										</div>
 									</li>
-								{% endif %} #}
+								{% endif %} 
 
-								{# <li class="nav-item dropdown">
+								<li class="nav-item dropdown">
 									{% from 'default/_language_selector.html.twig' import render_language_selector %}
 									{{ render_language_selector() }}
 								</li>
@@ -96,35 +92,38 @@
 						</div>
 					</div>
 				</nav> #}
-   {# </header>   #}
+    </header>     
 
 {% endblock %}
 
 
-
 <body>
+
 {% block body %}
+<main class="main-content ">
+				<div class="container-fluid col-sm-12 col-md-6 col-lg-4"> 
 
 
 			{{ include('_partials/_flash.html.twig') }} 
 
 			{# <div class="container body-container"> #}
-				<main class="main-content">
-				{% block main %} 
-					
-				<div class="container-fluid col-sm-12 col-md-6 col-lg-4">
+			
+				{# {% block main %}  
+						
 		
-				{# <div class="row">
-					<div class="col-sm-9"> #}
+				 <div class="row">
+					<div class="col-sm-9"> 
 						
                       
 
-{# </div>
-</div> #}
+ </div>
+</div> 
 
 </div>
-	{% endblock %}
-	</main>	
+
+	{# {% endblock %} #}
+	
+	
 					{# <div id="sidebar" class="col-sm-3">
 						{% block sidebar %}
 							{{ render_esi(controller('Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController::templateAction', {
@@ -135,8 +134,8 @@
 						{% endblock %} 
 					</div> #}
 				
-		
-		
+	</div>	
+	</main>	
 {% endblock %}
 		{% block footer %}
 			<footer>

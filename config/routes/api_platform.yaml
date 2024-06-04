@@ -1,0 +1,4 @@
+api_platform: 
+    resource: app.jwtsecret
+    type: api_platform
+    prefix: /api

@@ -3,12 +3,47 @@
 {% block title %}Register !{% endblock %}
 
 {% block body %}
+    <section class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Inscription</h1>
+
+                {{ form_start(registrationForm) }}
+                    <fieldset class="mb-1">
+                        <legend>Mon identité</legend>
+                        {{ form_row(registrationForm.nom) }}
+                        {{ form_row(registrationForm.prenom) }}                         
+                        {{ form_row(registrationForm.email) }}
+                    </fieldset>
+
+                    <fieldset class="mb-1">
+                        <legend>Mes coordonnées</legend>
+                        {{ form_row(registrationForm.adresse) }}
+                        {{ form_row(registrationForm.cp) }}
+                        {{ form_row(registrationForm.ville) }}
+                        {{ form_row(registrationForm.telephone) }}
+                    </fieldset>
+                    {{ form_row(registrationForm.plainPassword, {
+                        label: 'Password'
+                    }) }}
+                    {{ form_row(registrationForm.agreeTerms) }}
+
+                    <button type="submit" class="btn btn-primary btn-lg my-1">M'inscrire</button>
+                    <a href="{{ path('app_login') }}" class="btn btn-secondary">Me connecter</a>
+                {{ form_end(registrationForm) }}            
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{# {% block body %}
 
 {% use "bootstrap_5_layout.html.twig" %}
 
 {% block main %} 
 	<main class="main-content ">
-{# {% block body %} #}
+
 
     <h1>Register</h1>
 			<div class="container body-container my-auto mx-auto">
@@ -41,4 +76,4 @@
  </div>
         </div>
         </main>
-{% endblock %}
+{% endblock %} #}
