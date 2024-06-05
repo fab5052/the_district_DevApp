@@ -2,7 +2,7 @@
 <html lang='fr'>
  <head>
 <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="view-transition" content="same-origin"/>
 		<title>
 			{% block title %}The District	{% endblock %}
@@ -10,99 +10,66 @@
 		</title>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
 
-
-{% block stylesheets %}	
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+{# {% block stylesheets %}	
 <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 	{% endblock %}
                     
 			{% block javascripts %}
 					<script src="{{ asset('/js/bootstrap.bundle.min.js') }}" defer></script> 
-            		 {# {{ encore_entry_script_tags('main') }}                      #}
+            		 {# {{ encore_entry_script_tags('main') }}                      
 
-		{% endblock %}
+		{% endblock %} #}
 			{# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 			 <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script> #}
 	<link rel="shortcut icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}"> 
    </head>
 
 	
-	
+	{% block header %}
 
-		{% block header %}
-   {# <header class="container-fluid col-xs-12 col-sm-12 col-md-6 col-lg-4"> #}
-			{# {% set _route = app.request.get('route') %} #}
-			 {{ include('_partials/_nav.html.twig')}}
 
-			 {% if app.user and app.user.isVerified == false %}
-			<div class="alert alert-warning alert-dismissible" role="alert">
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				<div class="alert-message">
-					<strong>Votre compte n'est pas activé</strong>, <a href="{{ path('resend_verif') }}">renvoyer le lien d'activation</a>
-				</div>
-			</div>          
-{% endif %}
-								{#/*	 <li class="nav-item{{ _route == '_partials' ? ' active' : '' }}">
-										<a class="nav-link" href="{{ path('app_accueil') }}">
-											<i class="fa fa-home" aria-hidden="true"></i>
-											{{ 'menu.homepage'|trans }}
-										</a>
-									</li>
-									{% if is_granted('ROLE_ADMIN') %}
-										<li class="nav-item">
-											<a class="nav-link" href="{{ path('admin_post_index') }}">
-												<i class="fa fa-lock" aria-hidden="true"></i>
-												{{ 'menu.admin'|trans }}
-											</a>
-										</li> 
-
-									{% endif %}
-							
-
-								<li class="nav-item{{ _route == 'blog_search' ? ' active' : '' }}">
-									<a class="nav-link" href="{{ path('blog_search') }}">
-										<i class="fa fa-search"></i>
-										{{ 'menu.search'|trans }}</a>
-								</li> 
-								{{% if app.user %}
-									<li class="nav-item dropdown">
-										<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="user">
-											<i class="fa fa-user" aria-hidden="true"></i>
-											<span class="caret"></span>
-											<span class="sr-only">{{ app.user.fullname }}</span>
-										</a>
-										<div class="dropdown-menu user" role="menu" aria-labelledby="user">
-											<a class="dropdown-item" href="{{ path('user_edit') }}">
-												<i class="fa fa-edit" aria-hidden="true"></i>
-												{{ 'menu.user'|trans }}
-											</a>
-											<div class="dropdown-divider"></div>
-											<a class="dropdown-item" href="{{ logout_path() }}">
-												<i class="fa fa-sign-out" aria-hidden="true"></i>
-												{{ 'menu.logout'|trans }}
-											</a>
-										</div>
-									</li>
-								{% endif %} 
-
-								<li class="nav-item dropdown">
-									{% from 'default/_language_selector.html.twig' import render_language_selector %}
-									{{ render_language_selector() }}
-								</li>
-							</ul>
-						</div>
-					</div>
-				</nav> #}
-    </header>     
+	{{ include('_partials/_nav.html.twig')}}
 
 {% endblock %}
+	<body>
+
+		{% block body %}
+
+<div class="container body-container">
 
 
-<body>
+<div class="row">
+				{% block main %}
 
-{% block body %}
-<main class="main-content ">
-				<div class="container-fluid col-sm-12 col-md-6 col-lg-4"> 
 
+					<main class="main-content">
+						<div
+							class="col-sm-12">
+
+
+							{% use "bootstrap_5_layout.html.twig" %}
+							{{ include('_partials/_flash.html.twig') }}
+
+							{% if app.user and app.user.isVerified == false %}
+								<div class="alert alert-warning alert-dismissible" role="alert">
+									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									<div class="alert-message">
+										<strong>Votre compte n'est pas activé</strong>,
+										<a href="{{ path('resend_verif') }}">renvoyer le lien d'activation</a>
+									</div>
+								</div>
+							{% endif %}
+</main>
+
+</div>
+{% endblock %}
+
+</div>
+</div>
+</div>
+
+{% endblock %}
 
 			{{ include('_partials/_flash.html.twig') }} 
 
@@ -134,9 +101,7 @@
 						{% endblock %} 
 					</div> #}
 				
-	</div>	
-	</main>	
-{% endblock %}
+
 		{% block footer %}
 			<footer>
 						 {{ include('_partials/_footer.html.twig')}}          

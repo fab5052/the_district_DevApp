@@ -21,10 +21,63 @@
   padding: 0;
   }  
 
-  body {
-    height: 70vh;
-    width: 100vw;
+
+
+  .bg {
+    animation: slide 20s ease-in-out infinite alternate;
+    background-image: linear-gradient(-40deg, rgba(91, 36, 9, 0.448)50%, black 50%);
+    /*-40deg is the angle of the cut and 50% is how much of the color takes up the screen*/
+    bottom: 0;
+    top: 0;
+    left: -50%;
+    opacity: .7;
+    position: fixed;
+    right: -50%;
+    z-index: -20;
   }
+
+  .bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 20s;
+    background-image: linear-gradient(-40deg, rgb(5, 58, 83) 50%, grey 50%);
+  }
+
+  .bg3 {
+    animation-duration: 20s;
+  }
+
+  .content {
+    background-color: rgba(145, 128, 128, 0.861);
+    background-image: cover;
+    border-radius: .25em;
+    box-shadow: 0 0 .25em rgba(134, 132, 132, 0.25);
+    box-sizing: border-box;
+    left: 50%;
+    padding: 10vmin;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 80%;
+    z-index: -21;
+ 
+  }
+
+  .content .img {
+   width: 100vw;
+    z-index: -20;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(-25%);
+    }
+
+    100% {
+      transform: translateX(25%);
+    }
+  }
+
 footer {
     position: fixed;
     bottom: 0;
@@ -41,15 +94,15 @@ footer {
 
 .main-content {
     margin-top: 1vh; 
-    margin-bottom: 20vh;
-  
-    height: 100%;
+ 
+    height: auto;
+    z-index: 1000;
   
     
   }
   
   
-.parallax {
+/* .parallax {
     background-image: url("https://i.etsystatic.com/21916349/r/il/a756da/3962508333/il_794xN.3962508333_jf2j.jpg");
     background-attachment: fixed; 
     background-size: cover ; 
@@ -59,7 +112,7 @@ footer {
    
    
   
-  }
+  } */
 
     
   #slider {
@@ -314,7 +367,7 @@ textarea {
    
 } */
 
-@keyframes slideAnimation {
+/* @keyframes slideAnimation {
   
   0% {
      
@@ -338,8 +391,10 @@ textarea {
     animation: slideAnimation 6s infinite;
   
   
-  }
+  } */
   
+
+
 
   
 /* .carousel-image {
@@ -354,18 +409,50 @@ textarea {
 
 
 
-/* .cards {
-    position: absolute;
-    display: block;
-    border-radius: 3px; 
-    width: 100%;
+.card {
+
     height: auto;
     border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
     transition: transform 0.5s ease;
     cursor: pointer;
     background-color: transparent;
     border: none;
-} */
+}
+
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-link {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+
+.btn-link:hover {
+  color: black;
+  background-color: white;
+}
+
+
+.img-card {
+  max-height: 300px;
+
+}
+
+.description {
+  border: 2px solid rgb(179, 166, 166);
+  border-radius: 4px;
+}
+
 
 
 /* .carousel-button {
@@ -405,7 +492,7 @@ textarea {
 
   }
   
-  
+
   
   h1 {
     font-family: "neon-tubes-2-regular";
@@ -484,8 +571,29 @@ textarea {
   
   } */
 
-  .carous {
+  .carous  {
     position: relative;
+    top: 30vh;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    width: 900px;
+   
+   
+    align-items: center;
+    z-index: 10;
+  
+  }
+
+  .contentContainer {
+    justify-content: center;
+    margin-top: 20vh;
+    margin-left:40vw; 
+    margin-right: 1vh; 
+    width: 900px;
+    z-index: 10;
+  }
+    /* position: relative;
     top: 10vh;
     overflow: hidden;
     margin:  auto 0;
@@ -497,7 +605,7 @@ textarea {
     align-items: center;
     padding-top: 1vh;
     justify-self: center;
-    z-index: 20;
+    z-index: 1500;
   
   }
 
@@ -507,15 +615,16 @@ textarea {
     justify-content: center;
     margin-top: 5vh;
     align-items: center;
-   
+   z-index: 1500;
     width: auto;
-  }
+  } */
 
- .carouselContainer {
+ /* .carouselContainer {
     margin-top: 5vh;
-    width: 100vw
+    width: 100vw;
+  
   }
-   */
+    */
   .accordion-group {
     overflow: hidden;
     margin: 0 auto;
@@ -545,14 +654,23 @@ textarea {
     -webkit-transition: all 250ms ease-in-out;
     -moz-transition: all 250ms ease-in-out;
     transition: all 250ms ease-in-out;
+    border-radius: 3px; 
+    border-color: solid 8px linear-gradient(#f6b73c, #4d9f0c) 30;
+   
   }
-  .accordion-group li h3 {
+  .accordion-group li h2 {
     position: relative;
-    color: #fff;
+    justify-items: center;
+    color: #d9cdcd;
     text-transform: uppercase;
+    writing-mode: vertical-rl;
+    cursor: default;
+    text-shadow: solid 4px  #d9d9de;
+     border-radius: 2rem;
     letter-spacing: 0.15rem;
     padding: 0;
-    font-weight: 300;
+ 
+    font-weight: 600;
     margin: 6.5rem 0 0;
   }
   .accordion-group li .accordion-overlay {
@@ -667,25 +785,27 @@ textarea {
   }
   
 @media (max-width: 768px) {
-  .carous {
+  .carous  {
     position: relative;
-    top: 10vh;
- 
+    top: 30vh;
+    margin: none;
+    padding: none;
     justify-content: center;
-    width: 100vh;
-    vertical-align: middle;
-    padding-top: 40vh;
+    width: 500px;
+   
+   align-self: center;
     align-items: center;
-    z-index: 2;
+    z-index: 10;
   
   }
 
   .contentContainer {
     justify-content: center;
-    margin-top: 5vh;
-    margin-left:10vh; 
+    margin-top: 20vh;
+    margin-left:50vh; 
     margin-right: 1vh; 
-    width: 100vh;
+    
+    z-index: 10;
   }
   
 
