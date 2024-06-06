@@ -23,29 +23,24 @@
 			{# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 			 <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script> #}
 	<link rel="shortcut icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}"> 
-   </head>
+</head>
+	<body>
 
-	
+
 	{% block header %}
 
 
 	{{ include('_partials/_nav.html.twig')}}
 
 {% endblock %}
-	<body>
+
 
 		{% block body %}
 
-<div class="container body-container">
+<div class="container mt-30 mb-3">
 
+<main class="main-content ">
 
-<div class="row">
-				{% block main %}
-
-
-					<main class="main-content">
-						<div
-							class="col-sm-12">
 
 
 							{% use "bootstrap_5_layout.html.twig" %}
@@ -60,73 +55,65 @@
 									</div>
 								</div>
 							{% endif %}
+
 </main>
-
 </div>
+
+
+
+
+
 {% endblock %}
 
-</div>
-</div>
-</div>
-
-{% endblock %}
-
-			{{ include('_partials/_flash.html.twig') }} 
-
-			{# <div class="container body-container"> #}
 			
-				{# {% block main %}  
-						
-		
-				 <div class="row">
-					<div class="col-sm-9"> 
-						
-                      
 
- </div>
-</div> 
 
-</div>
-
-	{# {% endblock %} #}
-	
-	
-					{# <div id="sidebar" class="col-sm-3">
-						{% block sidebar %}
-							{{ render_esi(controller('Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController::templateAction', {
-                                                                                'template': 'blog/about.html.twig',
-                                                                                'sharedAge': 600,
-                                                                                '_locale': app.request.locale
-                                                                      })) }}
-						{% endblock %} 
-					</div> #}
 				
 
 		{% block footer %}
-			<footer>
-						 {{ include('_partials/_footer.html.twig')}}          
 
-				<div class="container">
-					<div class="row">
-						<div id="footer-copyright" class="col-md-6">
-							<p>&copy;
-								{{ 'now'|date('Y') }}
-								- The District</p>
-							<p>{{ 'mit_license'|trans }}</p>
-						</div>
-						<div id="footer-resources" class="col-md-6">
-							<p>
-								<a rel="noopener noreferrer" target="_blank" href="https://twitter.com/symfony" title="Symfony on X (formerly Twitter)">
-									<i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-								</a>
-								<a target="_blank" href="https://symfony.com/blog/" title="Symfony Blog">
-									<i class="fa-solid fa-rss" aria-hidden="true"></i>
-								</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</footer>
+	{{ include('_partials/_footer.html.twig') }}
+
+    {# <div class="row">
+
+  <p class="pull-right p-4 "><a href="#">Revenir en haut ▲</a></p>
+      <div class="col-md-3">
+        <h3 class="h3">A propos</h3>
+        <ul >
+          <li><a href="#">Historique</a></li>
+          <li><a href="#">Service clients</a></li>
+
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h3 class="h3">Partners</h3>
+        <ul>
+
+          <li><a href="#">MIO</a></li>
+
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h3 class="h3">Service clents</h3>
+        <ul>
+          <li><a href="#">Chat</a></li>
+          <li><a href="#">03 22 453 352</a></li>
+
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h3 class="h3">Socials</h3>
+        <ul >
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
+
+  </div>         #}
+
+				
+	
 
 	
   

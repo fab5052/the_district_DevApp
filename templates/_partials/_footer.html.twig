@@ -1,5 +1,12 @@
-<footer class="container-fluid position-fixed bottom:0">
+
+<footer>
+
+
   <p class="pull-right p-4 "><a href="#">Revenir en haut ▲</a></p>
+  	<p class="pull-left p-4 d-flex">&copy;
+								{{ 'now'|date('Y') }}
+								- The District </p>
+							{# <p>{{ 'mit_license'|trans }}</p> #}
   <div class="container-fluid ">
     <div class="row">
 
@@ -20,6 +27,9 @@
         <ul>
 
           <li><a href="#">MIO</a></li>
+          <div id="footer-copyright" class=" d-flex">
+						
+						</div>    
 
         </ul>
       </div>
@@ -32,22 +42,39 @@
         </ul>
       </div>
       <div class="col-md-3">
-        <h3 class="h3">Socials</h3>
-        <ul >
+        <h3 class="h3 d-flex">Socials</h3>
+        <ul>
           <li><a href="#"><i class="fa fa-facebook"></i></a></li>
           <li><a href="#"><i class="fa fa-instagram"></i></a></li>
           <li><a href="#"><i class="fa fa-twitter"></i></a></li>
         </ul>
-      </div>
-	{# <div class="row">
-		<section class="col">
-			Colonne 1
-		</section>
-		<section class="col">
-			Colonne 2
-		</section>
-		<section class="col">
-			Colonne 3
-		</section>
-	</div> #}
+     </div>
+
+ </div>
+ </div>
+              
 </footer>
+
+{# 
+  <footer>
+  <div class="container position-fixed bottom-0">
+					<div class="row">
+						<div id="footer-copyright" class="col-md-6">
+							<p>&copy;
+								{{ 'now'|date('Y') }}
+								- The District</p>
+							<p>{{ 'mit_license'|trans }}</p>
+						</div>
+						<div id="footer-resources" class="col-md-6">
+							<p>
+								<a rel="noopener noreferrer" target="_blank" href="https://twitter.com/symfony" title="Symfony on X (formerly Twitter)">
+									<i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+								</a>
+								<a target="_blank" href="https://symfony.com/blog/" title="Symfony Blog">
+									<i class="fa-solid fa-rss" aria-hidden="true"></i>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+</footer> #}

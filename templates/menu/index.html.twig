@@ -166,14 +166,13 @@ section	.carous .contentContainer{
 	
 
 
+<main class="main-content">	
+
+	 <div class"container d-flex position-relative col-12 mb-3 mt-3"> 
 
 
-	 <div class"container position-relative mb-3"> 
-   <div class="row align-self-center">
-   <div class="col-md-6">
-
-		<section class="carous contentContainer mb-3">
-			<div id="contentContainer" class="trans3d position-relative">
+		<section class="carous contentContainer  ">
+			<div id="contentContainer" class="trans3d ">
 				<section id="carouselContainer" class="trans3d">
 					{% for categorie in categories %}
 						<figure id="item" class="carouselItem trans3d"><img class="carouselItemInner" src="{{ asset(categorie.image) }}" style="object-fit: cover;"><div class="carouselItemInner">
@@ -200,16 +199,16 @@ section	.carous .contentContainer{
 
 	</section>
 </div>
-</div>
 
-</div>
-<div class="container position-relative mt-4 ">
-<div class="plats row mt-5">
+
+
+<div class="container plats mb-5">
+<div class='row mt-5 mb-5'>
   {% for plat in plats %}
-  <div class='card col-12 col-md-6 col-lg-4 p-0 d-flex justify-content-center p-0 m-0'>
+  <div class='card plats col-12 col-md-6 col-lg-4 p-0 d-flex justify-content-center mb-5'
     <img class='img-card' src="{{ asset(plat.image) }}">
     <div class='card-body'>
-      <h3 class="justify-content-center">{{plat.libelle}}</h3>
+      <h3 class="justify-self-center">{{plat.libelle}}</h3>
       <p class="description">{{plat.description}}</p>
       <h5>{{plat.prix}} €</h5>
       <div class='button'>
@@ -217,9 +216,11 @@ section	.carous .contentContainer{
       </div>    
     </div>
   </div>
+
   {% endfor %} 
   </div>
-  </div>
+</div>
+    </main>
  {% block javascripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
