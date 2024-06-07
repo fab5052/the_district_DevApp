@@ -2,43 +2,70 @@
 
 namespace App\Service;
 
+use DateTimeImmutable;
+
+use App\Entity\Utilisateur;
 use App\Entity\Contact;
+//use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Component\Mailer\MailerInterface;
-use App\Security\UserFormAuthenticator;
 
-class MailService
+class MailerInterface
 {
-    private $mailer;
+    private $mailerInterface;
 
-    public function __construct(MailerInterface $mailer)
+    public function __construct(MailerInterface $email)
     {
-        $this->mailer = $mailer;
+        $this->mailerInterface = $email;
     }
 
-    public function sendEmail(Contact $data): void
+    public function sendEmail(Utilisateur $data): void
     {
-        $email = (new TemplatedEmail())
+          $email = (new TemplatedEmail())
             ->from($data->getEmail())
             ->to('The_District@gmail.com')
-            ->subject('Demande de contact')
-            ->htmlTemplate('contact/mail.html.twig')
+            ->subject('Inscription')
+            ->htmlTemplate('registration/confirmation_email.html.twig')
             ->context(['data_mail' => $data]);
-
-        $this->mailer->send($email);
+    
+        $this->mailerInterface->send($email);
     }
 
-    public function sendEmailConfirmation(Contact $data): void
+     public function sendEmailConfirm(Utilisateur $data): void
     {
 
 
-        $emailConfirmation = (new Email())
+        $emailConfirm = (new Email())
             ->from('The_District@gmail.com')
             ->to($data->getEmail())
-            ->subject('Confirmation de votre demande de contact')
-            ->text('Merci pour votre demande de contact. Nous avons bien reçu vos informations.');
+            ->subject('Inscription')
+            ->text('Merci pour votre inscription.');
 
-        $this->mailer->send($emailConfirmation);
+        $this->mailerInterface->sendEmailConfirm($email);
     }
+
+    // public function sendEmail(Contact $data): void
+    // {
+    //     $email = (new TemplatedEmail())
+    //         ->from($data->getEmail())
+    //         ->to('The_District@gmail.com')
+    //         ->subject('Demande de contact')
+    //         ->htmlTemplate('contact/mail.html.twig')
+    //         ->context(['data_mail' => $data]);
+
+    //     $this->mailerInterface->sendEmail($email);
+    // }
+
+    // public function sendEmailConfirmation(Contact $data): void
+    // {
+
+
+    //     $emailConfirmation = (new Email())
+    //         ->from('The_District@gmail.com')
+    //         ->to($data->getEmail())
+    //         ->subject('Confirmation de votre demande de contact')
+    //         ->text('Merci pour votre demande de contact. Nous avons bien reçu vos informations.');
+
+    //     $this->mailerInterface->sendEmail($emailConfirmation);
+    // }
 }

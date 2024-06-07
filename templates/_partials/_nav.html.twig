@@ -28,14 +28,14 @@
           </button>
 
       </div>
-      <div class="navlinks-container col-sm-4 col-md-3 mx-auto d-flex m-0 justify-content-around justify-items-center vertical-align-middle ">
+      <div class="navlinks-container col-6 col-md-3 mx-auto d-flex m-0 justify-content-around justify-items-center vertical-align-middle ">
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_accueil') }}">Accueil</a>
                 </li>
-                <li class="nav-item">
+                {# <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_plat') }}">Plats</a>
-                </li>
+                </li> #}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_categorie') }}">Catégories</a>
                 </li>
@@ -55,9 +55,9 @@
           
       </div>
 
-<div class="nav-authentication d-flex col-md-2 col-sm-3 ">
+<div class="nav-authentication d-flexc col-4 col-md-2  ">
 <div class="shopping d-flex " >
-     <a href="#" class=>  <i class="fa fa-shopping-cart red "></i> <span class="badge badge-red">0</span></a>
+<a href="{{ path('app_cart') }}"><i class="fa fa-shopping-cart red "></i> <span class="badge badge-red">0</span></a>
        
 </div>
 <div class="sign-btns  ">    <a href="{{ path('app_profile') }}"> 

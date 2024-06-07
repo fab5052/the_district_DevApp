@@ -7,11 +7,15 @@ use App\Form\RegistrationFormType;
 use App\Repository\UtilisateurRepository;
 use App\Security\UserFormAuthenticator;
 use App\Service\JWTService;
-use App\Service\MailService;
+//use App\Service\MailerServiceInterface;
+use Symfony\Component\Mailer\MailerServiceInterface;
+use Symfony\Component\Mime\Email;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
@@ -19,27 +23,27 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class RegistrationController extends AbstractController
  {
-      private MailService $mail;
+      private MailerInterface $email;
       private JWTService $jwt;
       private EntityManagerInterface $entityManager;
       private UserAuthenticatorInterface $userAuthenticator;
       private UserFormAuthenticator $authenticator;
       public function __construct(
-          MailService $mail,
+          MailerInterface $email,
           JWTService $jwt,
           EntityManagerInterface $em,
           UserAuthenticatorInterface $userAuthenticator,
           UserFormAuthenticator $authenticator
       ) {
-          $this->mail = $mail;
+          $this->email = $email;
           $this->jwt = $jwt;
           $this->entityManager = $em;
           $this->userAuthenticator = $userAuthenticator;
           $this->authenticator = $authenticator;
       }
 
-    #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserFormAuthenticator $authenticator, EntityManagerInterface $entityManager, MailService $mail, JWTService $jwt): Response
+    //#[Route('/register', name: 'app_register')]
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UserFormAuthenticator $authenticator, EntityManagerInterface $entityManager, MailerInterface $email, JWTService $jwt): Response
     {
         $user = new Utilisateur();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -67,7 +71,7 @@ class RegistrationController extends AbstractController
 
             $token = $this->jwt->generate($header, $payload, $this->getParameter('app.jwtsecret'));
 
-            $entityManager->$mail->send(
+            $entityManager->$email->send(
                 'no-reply@monsite.net',
                 $user->getEmail(),
                 'Activation de votre compte sur le site The District',

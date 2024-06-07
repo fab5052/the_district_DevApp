@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Service;
 
 use DateTimeImmutable;
@@ -104,4 +105,6 @@ class JWTService
 
         return $token === $verifToken;
     }
+
+    
 }

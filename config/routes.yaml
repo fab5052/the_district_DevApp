@@ -21,10 +21,23 @@ app_plat :
     path: /plat 
     controller : App\Controller\MenuController::plat
 
-app_plat_cat :
-    path : /plats/{libelle}
-    controller : App\Controller\MenuController::plat_cat
+# app_plat_cat :
+#     path : /plats/{libelle}
+#     controller : App\Controller\MenuController::plat_cat
 
+
+get_plats_by_categorie:
+    path: /get-plats-by-categorie/{id}
+    controller: App\Controller\MenuController::getPlatsByCategorie
+    methods: GET
+
+
+# CartController
+
+
+app_cart:
+    path: /cart
+    controller : App\Controller\CartController::index
 
 # ContactController
 

@@ -9,376 +9,154 @@
 
 <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 	
+		<style>
+			#plats-container {
+				transition: opacity 0.5s ease-in-out;
+				opacity: 0;
+				max-height: 0;
+				overflow: hidden;
 
-{# <style>
-.horizontal-collapse {
- 
-  width: 100%; 
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-bottom: auto;
- 
-  justify-items: center;
+			}
 
-}
+			#plats-container.show {
+				opacity: 1;
+		max-height: 900px;
 
-.horizontal-collapse__inner img {
-  max-height: 60vh;
-  min-height: 60vh;
-  list-style: none;
-  padding: 0;
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  min-width:auto;
- 
-
-}
-
-.horizontal-collapse__inner .cards {
-  padding: 0;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  color: white;
-  border-radius: 2rem;
-  font-size: 4rem;
-  font-weight: bold;
-
-}
-
-.horizontal-collapse__inner {
-  padding: 0;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  color: white;
-  border-radius: 2rem;
-  font-size: 4rem;
-  font-weight: bold;
-
-}
-
-.horizontal-collapse__item {
-  min-height: 42rem;
-  list-style: none;
-  padding: 0;
-  overflow: hidden;
-  min-width: auto;
-  max-width: auto;
-  position: relative;
-  transition: width 0.8s;
- 
-}
-
-.horizontal-collapse__item--0 {
-  background-color: red;
-   
-}
-
-.horizontal-collapse__item--1 {
-  background-color: green;
-}
-
-.horizontal-collapse__item--2 {
-  background-color: blue;
-}
-
-.horizontal-collapse__item--3 {
-  background-color: purple;
-}
-
-.horizontal-collapse__item--4 {
-  background-color: orange;
-}
-
-.horizontal-collapse__item--5 {
-  background-color: pink;
-}
-.horizontal-collapse__item--6 {
-  background-color: yellow;
-}
-.horizontal-collapse__item--7 {
-  background-color: grey;
-}
-
-
-
-.horizontal-collapse__item.is-active .horizontal-collapse__inactive-content {
-  opacity: 0;
-}
-
-.horizontal-collapse__item.is-active .horizontal-collapse__active-content {
-  opacity: 1;
-}
-
-.horizontal-collapse__item-inner {
-  padding: 2rem;
-  font-size: 3.7rem;
- 
-   z-index:-10;
-}
-
-.horizontal-collapse__inactive-content {
-  opacity: 1;
-  transition: opacity 0.5s;
-  position: absolute;
-  top: 0;
- 
-}
-
-.horizontal-collapse__inactive-content .h2 {
-  color: white;
-  border-radius: 2rem;
-  font-size: 4rem;
-  font-weight: bold;
-
-}
-
-.horizontal-collapse__inactive-content .horizontal-collapse__heading {
-  user-select: none;
-  cursor: default;
- text-shadow: solid 4px  #d9d9de;
-  color: #cbdce2;
-  border-radius: 2rem;
-  font-size: 4rem;
-  font-weight: bold;
-  line-height: 0;
-  margin-top: 15px;
-  margin-left: 10px;
-  justify-items: center;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  min-width: auto;
-}
-
-.horizontal-collapse__inactive-content  {
-    color: white;
-  border-radius: 2rem;
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center:
-}
-
-.horizontal-collapse__active-content {
-  opacity: 0;
-  transition: opacity 0.5s;
-  cursor: default;
-}
-
-.horizontal-collapse__heading h2 {
+    align-items: center;
   
-  color: white;
-  border-radius: 4rem;
-  font-size: 3.7rem;
-  font-weight: bold;
-  justify-content: center;
+			}
 
-}
 
-.horizontal-collapse__body {
-  margin-bottom: 1rem;
-}
-.horizontal-collapse__body p {
-   color: white;
-  
-  font-size: 2.7rem;
-}
-
-.horizontal-collapse__link {
-  display: inline-block;
-
-  text-decoration: none;
-  line-height: 1;
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  font-size: 3.7rem;
-  font-weight: bold;
-}
-
-.horizontal-collapse__item-inner  .cards {
-  
-display:block;
-position: absolute;
-    border-radius: 3px; 
-  
-   
+.card {
+    top: 40vh;
+    margin-bottom: 20vh;
     height: auto;
-    border-image: linear-gradient(#f6b73c, #4d9f0c) 30;
-   
+    border-image: linear-gradient(#000000, #4d9f0c) 30;
+    transition: transform 0.5s ease;
     cursor: pointer;
     background-color: transparent;
     border: none;
-}  #}
-
-
-{#}.carousel-button {
-    z-index: 1;
-   margin: 100%;
-    position: relative;
-
-
-  } #}
-  
-{# .horizontal-collapse .h2 {
-    text-align: center;
-    font-size: xx-large;
-    display: block;
-
-    font-weight: 1000;
-    font-family: "neon-tubes-2-regular";
-    z-index: 1;
-    color: white;
-
-    justify-items: center;
-    background-color: #3c505b77;
-
-   margin-bottom:auto;
-
-    letter-spacing: 0.05rem;
-  
-   
+    z-index: auto;
     
-  } 
 
-.horizontal-collapse {
-
-
-
-@media (min-width: 769px) and (max-width: 1200px) {
-  .horizontal-collapse__item {
-    flex: 1 1 45%;
-  }
+   
 }
 
-@media (min-width: 1201px) {
-  .horizontal-collapse__item {
-    flex: 1 1 30%;
-  }
-} 
-}#}
-</style>
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-link {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+
+.btn-link:hover {
+  color: black;
+  background-color: white;
+}
+
+
+.img-card {
+  max-height: 300px;
+
+
+}
+
+.description {
+  border: 2px solid rgb(179, 166, 166);
+  border-radius: 4px;
+}
+		</style>
+
+
 {% endblock %}
 
 
-
-
-
-{# <section class="js-horizontal-collapse horizontal-collapse " data-item-min-width="120" data-item-max-width="125">
-
-  <ul class="horizontal-collapse__inner"> #}
 <main class="main-content">	
-  <div class="container-fluid ">
-         
-          <div class="row">
-            <ul class="accordion-group" id="accordion">
-                {% for categorie in categories %}
-              <li>
-           
-               <img  src="{{ asset(categorie.image) }}"> 
-               <div class="accordion-overlay cards"> <h2>{{ categorie.libelle }}</h2> </div>
-                
-                      {% endfor %}
-                {# <section class="hidden-xs">
-                  <article>
-                    <p>Rual and rustic</p>
-                  </article>
-                </section> #}
-              </li>
-              </ul>
-          </div>
-    </div>
-     
 
-    </main>    
-        {# <li class="js-horizontal-collapse-item horizontal-collapse__item horizontal-collapse__item--{{ loop.index0 }}" tabindex="0" role="button">
-          <div class="js-horizontal-collapse-item-inner horizontal-collapse__item-inner">
-            <div class="horizontal-collapse__inactive-content">
-              <img class="js-horizontal-collapse-item-inner cards" src="{{ asset(categorie.image) }}">
-              <h2 class="horizontal-collapse__heading">{{ categorie.libelle }}</h2>
-            </div>
-            <div class="horizontal-collapse__active-content">
-              <h2 class="horizontal-collapse__heading">{{ categorie.libelle }}</h2> #}
-              {# <p class="horizontal-collapse__body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates modi laudantium facere aut, nemo praesentium, labore doloremque, porro ipsam qui nihil animi ea maiores. Ut excepturi quae veritatis. Recusandae, cupiditate?
-              </p> 
-            </div>
-          </div>
-         </li>
-        
-      {% endfor %}
-  
-         </ul >
-  </section>
+
+	<div class="container-fluid">
+		<div class="row">
+			<ul class="accordion-group" id="accordion">
+				{% for categorie in categories %}
+					<li>
+						<a href="#" class="categorie-link" data-categorie-id="{{ categorie.id }}">
+							<img src="{{ asset(categorie.image) }}" class="categorie-image">
+							<div class="accordion-overlay cards">
+								<h2>{{ categorie.libelle | upper }}</h2>
+<button class="btn-success p-1 align-items-end">Plats</button>
+
+							</div>
+							
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+
+
+<div id="plats-container">
+<div class='col-12 mt-5 mb-5'>
+
+
+
 </div>
+</div>
+</main>    
+	{% block javascripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+const links = document.querySelectorAll('.categorie-link');
+const platsContainer = document.getElementById('plats-container');
+
+links.forEach(link => {
+link.addEventListener('click', function (event) {
+event.preventDefault();
+const categorieId = this.getAttribute('data-categorie-id');
+fetchPlats(categorieId);
+});
+});
+
+function fetchPlats(categorieId) {
+fetch (`/get-plats-by-categorie/${categorieId}`).then(response => response.json()).then(data => {
+platsContainer.innerHTML = '';
+data.plats.forEach(plat => {
+const platElement = document.createElement('div');
+  platElement.innerHTML = `
+      <div class="card">
+	     <div class="card-body"><img class='img-card' src='${plat.image}'>
+	    	 <h5 class="card-title">${plat.name}</h5>
+		     <p class="card-text">${plat.description}</p>
+<h5>${plat.prix}€</h5>
+<div class='button'>
+	<button class='btn-primary'>Ajouter au Panier
+<a href="{{ path('app_cart') }}"></button></a>
 
 
-{% block javascripts %}
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    var $horizontalCollapse = $('.js-horizontal-collapse');
+	   </div>
+      </div>
+   `;
 
-    $horizontalCollapse.each(function() {
-      var $hc = $(this);
-      var itemMinWidth = $hc.data('itemMinWidth');
-      var itemMaxWidth = $hc.data('itemMaxWidth');
-      var $items = $hc.find('.js-horizontal-collapse-item');
-      
-      $items.each(function() {
-        var $item = $(this);
-        $item.css('min-width', itemMinWidth + 'px');
-        $item.css('width', itemMinWidth + 'px');
-        $item.css('max-width', itemMaxWidth + 'px');
+platsContainer.appendChild(platElement);
+});
+platsContainer.classList.add('show');
+}).catch(error => console.error('Error fetching plats:', error));
+}
+});
+		</script>
 
-        $item.find('a').click(function(evt) {
-          evt.stopPropagation();
-        });
-
-        $item.on('keypress', function(evt) {
-          if (evt.keyCode === 13 || evt.keyCode === 32) {
-            $(this).trigger('click');
-          }
-        });
-
-        $item.on('mouseenter', function() {
-          var $this = $(this);
-          $this.siblings().removeClass('is-active');
-          $this.siblings().css('width', itemMinWidth + 'px');
-          $this.addClass('is-active');
-          $this.css('width', itemMaxWidth + 'px');
-        });
-
-        $item.on('mouseleave', function() {
-          var $this = $(this);
-          $this.siblings().removeClass('is-active');
-          $this.siblings().css('width', itemMinWidth + 'px');
-          $this.removeClass('is-active');
-          $this.css('width', itemMinWidth + 'px');
-        });
-
-        $item.on('click', function() {
-          var $this = $(this);
-          $this.siblings().removeClass('is-active');
-          $this.siblings().css('width', itemMinWidth + 'px');
-          $this.toggleClass('is-active');
-          if ($this.hasClass('is-active')) {
-            $this.css('width', itemMaxWidth + 'px');
-          } else {
-            $this.css('width', itemMinWidth + 'px');
-          }
-        });
-
-        var $itemInner = $item.find('.js-horizontal-collapse-item-inner');
-        $itemInner.css('width', itemMaxWidth + 'px');
-      });
-    });
-  });
-</script>#}
-{% block javascripts %}
 <script src="js/accordions.js"></script> 
 {# <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> #}
 {% endblock %}

@@ -1,0 +1,22 @@
+{{ form_start(cartForm) }}
+    {{ form_row(cartForm.libelle) }}
+    {{ form_row(cartForm.description) }}
+    {{ form_row(cartForm.categorie) }}
+    {{ form_row(cartForm.prix) }}
+    {# {{ form_row(cartForm.stock) }} #}
+
+    {# On affiche les images si on est en édition #}
+    {# {% if app.request.attributes.get('_route') == 'admin_cart_edit' %} #}
+        <h2>Images</h2>
+        {% for image in plat.images %}
+            <div>
+                <img src="{{ asset('assets/plat/300x300-' ~ image.libelle ) }}" alt="Image" width="150">
+                {# <a href="{{ path('admin_plats_delete_image', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a> #}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    {{ form_row(cartForm.images) }}
+
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Ajouter') }}</button>
+{{ form_end(cartForm) }}

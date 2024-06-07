@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class MenuController extends AbstractController
 {
@@ -56,24 +57,28 @@ class MenuController extends AbstractController
     }
 
 
-    public function plat_cat(EntityManagerInterface $em, Request $request, string $libelle): Response
+
+    public function getPlatsByCategorie(EntityManagerInterface $em, $id): JsonResponse
     {
-        $libelle = $request->attributes->get('libelle');
-
-
-        $categorie = $em->getRepository(Categorie::class)->findOneBy(['libelle' => $libelle]);
-
-
+        $categorie = $em->getRepository(Categorie::class)->find($id);
+    
+        if (!$categorie) {
+            return new JsonResponse(['error' => 'Category not found'], 404);
+        }
+    
         $plats = $categorie->getPlats();
-
-        return $this->render('menu/plat_cat.html.twig', [
-            'controller_name' => 'MenuController',
-            'categorie' => $categorie,
-            'plats' => $plats,
-
-        ]);
+        $data = [];
+    
+        foreach ($plats as $plat) {
+            $data[] = [
+                'name' => $plat->getLibelle(),
+                'description' => $plat->getDescription(),
+            ];
+        }
+    
+        return new JsonResponse(['plats' => $data]);
     }
-}
+    }
 
 
 
